@@ -2,41 +2,42 @@
   <div class="card-header  bg-info text-center text-light">
       <strong><span class="fa fa-user-circle mr-2"></span>Sign Up</strong>
   </div>
-  <form>
-      <div class="form-group col-md-4">
-        <label for="Name">Full Name</label>
-        <input type="text" class="form-control" id="name">
-      </div>
-   
-
-    <div class="form-group col-md-4">
-        <label for="vehicle_no">Vehicle No</label>
-          <input type="number" class="form-control" id="vehicle_no">
-        </div>
-
-        <div class="form-group  col-md-4">
-          <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-    
+   <!-- <form (ngSubmit)="onSubmit()" #driverRequestForm="ngForm" ngNativeValidate> -->
+  
+      <form>
         <div class="form-group col-md-4">
-          <label for="inputAddress2">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <label for="Name">Full Name</label>
+        <input type="text" class="form-control" required id="name">
+      </div>
+     
+
+   
+      <div class="form-group col-md-4">
+        <label for="age">Age</label>
+          <input type="number" class="form-control" required id="age" min="18" max="60">
         </div>
-    
+
+        <div class="form-group col-md-4">
+          <label for="phone_umber">Phone Number</label>
+            <input type="length" class="form-control" minlength="10" maxlength="10" id="phone_number">
+          </div>
+
+          
+
           <div class="form-group col-md-4">
-            <label for="inputCity">City</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
+            <label for="Car_Type">Car Type</label>
+            <select id="car_type" class="form-control" required>
+              <option selected>Choose Car Type</option>
               <option>Bangalore</option>
               <option>New Delhi</option>
               <option>Mumbai</option>
             </select>
           </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-          </div>
+
+    <div class="form-group col-md-4">
+        <label for="vehicle_no">Vehicle No (KA03AF5435)</label>
+          <input type="text" class="form-control" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" id="vehicle_no">
+        </div>
 
         <div class="container-fluid">
             <div class="form-group col-md-4">
@@ -46,15 +47,35 @@
           </div>
             
           <script>
-          // Add the following code if you want the name of the file appear on select
+          // Code to get the name of file after uploading
           $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
           });
           </script>
 
+         
+          
+          <div class="form-group col-md-4">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="Password">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2">
+          </div>
+
           <div class="form-group col-md-4">
             <button type="submit" class="btn btn-primary">Sign up</button>
           </div>
-          
+
+         
+
+            
+
           </form>
+      
+
+        
+
