@@ -1,20 +1,17 @@
-<div class="card nopadding mt-3">
+<div class="card nopadding mt-3 mb-4">
     <div class="card-header  bg-info text-center text-light">
         <strong><span class="fa fa-user-circle mr-2"></span>Sign Up</strong>
     </div>
   
     
 
-      <div class="card-body mt-4">
+      <div class="card-body mt-1">
         <form>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-12">
         <label for="name">Full Name</label>
-        <input type="text" class="form-control" name="name" #name="ngModel" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="DriverModel.name" id="name"  title="Only alphabets allowed">
-                <div *ngIf="!name.value &&name.touched " class="alert alert-danger ">
+        <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="driver.name" id="name" #name="ngModel" title="Only alphabets allowed">
+                <div *ngIf="!name.value && name.touched " class="alert alert-danger ">
                     Field required
-                </div>
-                <div *ngIf="name.errors.required">
-                  Name is required.
                 </div>
                 <div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
                     Alphabets allowed
@@ -23,36 +20,75 @@
      
 
    
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-12">
         <label for="age">Age</label>
-          <input type="number" class="form-control" required id="age" min="18" max="60">
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="phone_umber">Phone Number</label>
-            <input type="length" class="form-control" minlength="10" maxlength="10" id="phone_number">
+          <input type="text" class="form-control" required [(ngModel)]="driver.age" id="age" pattern="[0-9]*"
+          title="Only 2 digit number allowed" minlength="2" maxlength="2"  #age="ngModel" [ngModelOptions]="{standalone: true}">
+          <div *ngIf="age.invalid && (age.touched || age.dirty)" class="alert alert-danger ">
+            <div *ngIf="age.errors.required">
+              Age is required.
+            </div>
+            <div *ngIf="age.errors.minlength">
+              Age must be 2 characters long.
+            </div>
+            <div *ngIf="age.errors.pattern">
+              Invalid Format. Only numbers allowed.
+            </div>
           </div>
+      </div>
+
+        <div class="form-group col-md-12">
+          <label for="phone_number">Phone Number</label>
+            <input type="text" class="form-control" required [(ngModel)]="driver.phone_number" pattern="[0-9]*"
+            title="Only 10 digit number allowed" minlength="10" maxlength="10"  
+            #phone_number="ngModel" [ngModelOptions]="{standalone: true}" id="phone_number">
+            <div *ngIf="phone_number.invalid && (phone_number.touched || phone_number.dirty)" class="alert alert-danger ">
+              <div *ngIf="phone_number.errors.required">
+                Phone number is required.
+              </div>
+              <div *ngIf="phone_number.errors.minlength">
+                Phone number must be 10 characters long.
+              </div>
+              <div *ngIf="phone_number.errors.pattern">
+                Invalid Format. Only numbers allowed.
+              </div>
+            </div>
+        </div>
 
           
 
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-12">
             <label for="Car_Type">Car Type</label>
-            <select id="car_type" class="form-control" required>
+            <select id="car_type" class="form-control" required [(ngModel)]="driver.car_type"
+             #car_type="ngModel" [ngModelOptions]="{standalone: true}">
               <option selected>Choose Car Type</option>
-              <option>Bangalore</option>
-              <option>New Delhi</option>
-              <option>Mumbai</option>
+              <option>Hatchback</option>
+              <option>Sedan</option>
+              <option>SUV</option>
             </select>
           </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-12">
         <label for="vehicle_no">Vehicle No (KA03AF5435)</label>
-          <input type="text" class="form-control" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" id="vehicle_no">
+          <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" 
+          id="vehicle_no" required [(ngModel)]="driver.vehicle_no" #vehicle_no="ngModel" [ngModelOptions]="{standalone: true}">
+          <div *ngIf="vehicle_no.invalid && (vehicle_no.touched || vehicle_no.dirty)" class="alert alert-danger ">
+            <div *ngIf="vehicle_no.errors.required">
+              Vehicle number is required.
+            </div>
+            <div *ngIf="vehicle_no.errors.minlength">
+              Vehicle number must be 10 characters long.
+            </div>
+            <div *ngIf="vehicle_no.errors.pattern">
+              Invalid Format. 
+            </div>
+          </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="form-group col-md-4">
-              <label class="custom-file-label" for="customFile">Upload Driving License</label>
+        <div class="container-fluid ">
+          <label>Upload Driving License</label>
+            <div class="form-group col-md-12">
+              <label class="custom-file-label" for="customFile"> Upload here </label>
               <input type="file" class="custom-file-input" id="customFile">
             </div>
           </div>
@@ -67,17 +103,18 @@
 
          
           
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-12">
             <label for="Password">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" 
+            required [(ngModel)]="driver.exampleInputPassword1" #exampleInputPassword1="ngModel" [ngModelOptions]="{standalone: true}">
           </div>
 
           <!-- <div class="form-group col-md-4">
             <label for="Password">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword2">
-          </div> -->
+          </div>  -->
 
-          <div class="form-group col-md-4">
+          <div class="d-flex justify-content-center ">
             <button type="submit" class="btn btn-primary">Sign up</button>
           </div>
 
