@@ -1,4 +1,4 @@
-export class Driver{
+export class DriverModel{
     name: string;
     age: number;
     phone_number: number;

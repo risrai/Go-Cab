@@ -1,4 +1,4 @@
-export class Payment{
+export class PaymentModel{
     fare: number;
     
 

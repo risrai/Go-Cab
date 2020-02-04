@@ -8,7 +8,7 @@ import { DriverModel} from 'src/app/model/DriverModel';
 })
 export class DriverComponent implements OnInit {
 
-  driver= new DriverModel;
+  driver= new DriverModel();
 
   constructor() { }
 
