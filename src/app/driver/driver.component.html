@@ -1,13 +1,24 @@
 <div class="card nopadding mt-3">
-  <div class="card-header  bg-info text-center text-light">
-      <strong><span class="fa fa-user-circle mr-2"></span>Sign Up</strong>
-  </div>
-   <!-- <form (ngSubmit)="onSubmit()" #driverRequestForm="ngForm" ngNativeValidate> -->
+    <div class="card-header  bg-info text-center text-light">
+        <strong><span class="fa fa-user-circle mr-2"></span>Sign Up</strong>
+    </div>
   
-      <form>
+    
+
+      <div class="card-body mt-4">
+        <form #addAccountForm="ngForm">
         <div class="form-group col-md-4">
-        <label for="Name">Full Name</label>
-        <input type="text" class="form-control" required id="name">
+        <label for="name">Full Name</label>
+        <input type="text" class="form-control" name="name" #name="ngModel" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="Driver.name" id="name"  title="Only alphabets allowed">
+                <div *ngIf="!name.value &&name.touched " class="alert alert-danger ">
+                    Field required
+                </div>
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
+                    Alphabets allowed
+                </div>
       </div>
      
 
@@ -61,10 +72,10 @@
             <input type="password" class="form-control" id="exampleInputPassword1">
           </div>
 
-          <div class="form-group col-md-4">
+          <!-- <div class="form-group col-md-4">
             <label for="Password">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword2">
-          </div>
+          </div> -->
 
           <div class="form-group col-md-4">
             <button type="submit" class="btn btn-primary">Sign up</button>
@@ -74,8 +85,9 @@
 
             
 
-          </form>
-      
+          </form >
+      </div>
+    </div>
 
         
 
