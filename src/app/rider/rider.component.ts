@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RiderModel} from 'src/app/model/RiderModel';
 
 @Component({
   selector: 'app-rider',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rider.component.css']
 })
 export class RiderComponent implements OnInit {
+
+  rider= new RiderModel();
 
   constructor() { }
 
