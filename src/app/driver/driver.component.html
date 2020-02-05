@@ -6,7 +6,9 @@
     
 
       <div class="card-body mt-1">
-        <form>
+        
+          <form (ngSubmit)="onSubmit()" #driverForm="ngForm" >
+
         <div class="form-group col-md-12">
         <label for="name">Full Name</label>
         <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="driver.name" id="name" #name="ngModel" title="Only alphabets allowed">
@@ -38,18 +40,18 @@
       </div>
 
         <div class="form-group col-md-12">
-          <label for="phone_number">Phone Number</label>
-            <input type="text" class="form-control" required [(ngModel)]="driver.phone_number" pattern="[0-9]*"
+          <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[0-9]*"
             title="Only 10 digit number allowed" minlength="10" maxlength="10"  
-            #phone_number="ngModel" [ngModelOptions]="{standalone: true}" id="phone_number">
-            <div *ngIf="phone_number.invalid && (phone_number.touched || phone_number.dirty)" class="alert alert-danger ">
-              <div *ngIf="phone_number.errors.required">
+            #phoneNumber="ngModel" [ngModelOptions]="{standalone: true}" id="phoneNumber">
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger ">
+              <div *ngIf="phoneNumber.errors.required">
                 Phone number is required.
               </div>
-              <div *ngIf="phone_number.errors.minlength">
+              <div *ngIf="phoneNumber.errors.minlength">
                 Phone number must be 10 characters long.
               </div>
-              <div *ngIf="phone_number.errors.pattern">
+              <div *ngIf="phoneNumber.errors.pattern">
                 Invalid Format. Only numbers allowed.
               </div>
             </div>
@@ -58,8 +60,8 @@
           
 
           <div class="form-group col-md-12">
-            <label for="Car_Type">Car Type</label>
-            <select id="car_type" class="form-control" required [(ngModel)]="driver.car_type"
+            <label for="carType">Car Type</label>
+            <select id="carType" class="form-control" required [(ngModel)]="driver.carType"
              #car_type="ngModel" [ngModelOptions]="{standalone: true}">
               <option selected>Choose Car Type</option>
               <option>Hatchback</option>
@@ -69,17 +71,17 @@
           </div>
 
     <div class="form-group col-md-12">
-        <label for="vehicle_no">Vehicle No </label>
+        <label for="vehicleNo">Vehicle No </label>
           <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" 
-          id="vehicle_no" required [(ngModel)]="driver.vehicle_no" #vehicle_no="ngModel" [ngModelOptions]="{standalone: true}">
-          <div *ngIf="vehicle_no.invalid && (vehicle_no.touched || vehicle_no.dirty)" class="alert alert-danger ">
-            <div *ngIf="vehicle_no.errors.required">
+          id="vehicleNo" required [(ngModel)]="driver.vehicleNo" #vehicleNo="ngModel" [ngModelOptions]="{standalone: true}">
+          <div *ngIf="vehicleNo.invalid && (vehicleNo.touched || vehicleNo.dirty)" class="alert alert-danger ">
+            <div *ngIf="vehicleNo.errors.required">
               Vehicle number is required.
             </div>
-            <div *ngIf="vehicle_no.errors.minlength">
+            <div *ngIf="vehicleNo.errors.minlength">
               Vehicle number must be 10 characters long.
             </div>
-            <div *ngIf="vehicle_no.errors.pattern">
+            <div *ngIf="vehicleNo.errors.pattern">
               Invalid Format. 
             </div>
           </div>

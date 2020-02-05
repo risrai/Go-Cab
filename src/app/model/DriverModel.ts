@@ -1,8 +1,8 @@
 export class DriverModel{
     name: string;
     age: string;
-    phone_number: string;
-    car_type: string;
-    vehicle_no: string;
+    phoneNumber: string;
+    carType: string;
+    vehicleNo: string;
     exampleInputPassword1: string; 
 }

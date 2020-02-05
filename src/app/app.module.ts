@@ -26,7 +26,8 @@ import { AuthenticationService } from './AuthenticationService/authentication.se
     LogInComponent,
     DriverPopupComponent,
     DriverConfirmRideComponent,
-    TranitComponent
+    TranitComponent,
+
   ],
   imports: [
     BrowserModule,
