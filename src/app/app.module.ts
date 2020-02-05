@@ -13,7 +13,6 @@ import { LogInComponent } from './log-in/log-in.component';
 import { DriverPopupComponent } from './driverservice/driver-popup/driver-popup.component';
 import { DriverConfirmRideComponent } from './driverservice/driver-confirm-ride/driver-confirm-ride.component';
 import { TranitComponent } from './tranit/tranit.component';
-import { ServiceComponent } from './service/service.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,7 @@ import { ServiceComponent } from './service/service.component';
     DriverPopupComponent,
     DriverConfirmRideComponent,
     TranitComponent,
-    ServiceComponent
+
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,9 @@
     
 
       <div class="card-body mt-1">
-        <form>
+        
+          <form (ngSubmit)="onSubmit()" #driverForm="ngForm" >
+
         <div class="form-group col-md-12">
         <label for="name">Full Name</label>
         <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="driver.name" id="name" #name="ngModel" title="Only alphabets allowed">

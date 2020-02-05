@@ -6,5 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DriverService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
+
+  doDriverRegistration(driverService) {
+
+    return this.http.post("http://localhost:8082/driver/add", driverService);
+
+
+  }
 }
