@@ -2,11 +2,12 @@
   <div class="card-header  bg-info text-center text-light">
       <strong><span class="fa fa-user-circle mr-2"></span>Rider Sign Up</strong>
   </div>
-<form>
+
   
    
   <div class="card-body mt-1">
-    <form>
+    
+    <form (ngSubmit)="onSubmit()" #riderForm="ngForm">
     <div class="form-group col-md-12">
     <label for="name">Full Name</label>
     <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="rider.name" id="name" #name="ngModel" title="Only alphabets allowed">
