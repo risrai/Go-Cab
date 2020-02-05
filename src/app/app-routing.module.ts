@@ -5,6 +5,7 @@ import {DriverComponent} from './driver/driver.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { TranitComponent } from './tranit/tranit.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'driver',component: DriverComponent} ,
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
-  {path:'transit',component:TranitComponent}
+  {path:'transit',component:TranitComponent},
+  {path: 'payment',component:PaymentComponent}
 ];
 
 @NgModule({

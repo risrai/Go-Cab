@@ -15,6 +15,7 @@ import { DriverConfirmRideComponent } from './driverservice/driver-confirm-ride/
 import { TranitComponent } from './tranit/tranit.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './AuthenticationService/authentication.service';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuthenticationService } from './AuthenticationService/authentication.se
     DriverPopupComponent,
     DriverConfirmRideComponent,
     TranitComponent,
+    PaymentComponent,
 
   ],
   imports: [
