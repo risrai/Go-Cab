@@ -15,11 +15,14 @@ import { DriverConfirmRideComponent } from './driverservice/driver-confirm-ride/
 import { TranitComponent } from './tranit/tranit.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './AuthenticationService/authentication.service';
+import { AddDriverComponent } from './add-driver/add-driver.component';
+import { DelDriverComponent } from './del-driver/del-driver.component';
 import { PaymentComponent } from './payment/payment.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     NavbarsComponent,
     RiderComponent,
     HomePageComponent,
@@ -28,7 +31,11 @@ import { PaymentComponent } from './payment/payment.component';
     DriverPopupComponent,
     DriverConfirmRideComponent,
     TranitComponent,
+    AddDriverComponent,
+    DelDriverComponent,
     PaymentComponent,
+
+    FooterComponent
 
   ],
   imports: [
