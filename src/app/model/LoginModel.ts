@@ -1,4 +1,4 @@
 export class LoginModel{
-    Phone_number: string;
+   username: string;
     password: string;
 }

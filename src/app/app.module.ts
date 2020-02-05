@@ -13,6 +13,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { DriverPopupComponent } from './driverservice/driver-popup/driver-popup.component';
 import { DriverConfirmRideComponent } from './driverservice/driver-confirm-ride/driver-confirm-ride.component';
 import { TranitComponent } from './tranit/tranit.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthenticationService } from './AuthenticationService/authentication.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TranitComponent } from './tranit/tranit.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ AuthGuard ,
+    AuthenticationService ,
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
