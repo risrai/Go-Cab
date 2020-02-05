@@ -71,17 +71,27 @@
           </div>
 
     <div class="form-group col-md-12">
-        <label for="vehicleNo">Vehicle No </label>
+        <label for="carNumber
+        ">Vehicle No </label>
           <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" 
-          id="vehicleNo" required [(ngModel)]="driver.vehicleNo" #vehicleNo="ngModel" [ngModelOptions]="{standalone: true}">
-          <div *ngIf="vehicleNo.invalid && (vehicleNo.touched || vehicleNo.dirty)" class="alert alert-danger ">
-            <div *ngIf="vehicleNo.errors.required">
+          id="carNumber
+          " required [(ngModel)]="driver.carNumber
+          " #carNumber
+          ="ngModel" [ngModelOptions]="{standalone: true}">
+          <div *ngIf="carNumber
+          .invalid && (carNumber
+          .touched || carNumber
+          .dirty)" class="alert alert-danger ">
+            <div *ngIf="carNumber
+            .errors.required">
               Vehicle number is required.
             </div>
-            <div *ngIf="vehicleNo.errors.minlength">
+            <div *ngIf="carNumber
+            .errors.minlength">
               Vehicle number must be 10 characters long.
             </div>
-            <div *ngIf="vehicleNo.errors.pattern">
+            <div *ngIf="carNumber
+            .errors.pattern">
               Invalid Format. 
             </div>
           </div>

@@ -12,7 +12,7 @@ export class DriverService {
 
   doDriverRegistration(driverService) {
 
-    return this.http.post("http://localhost:8082/driver/add", driverService);
+    return this.http.post("http://localhost:8085/driver/add", driverService);
 
 
   }

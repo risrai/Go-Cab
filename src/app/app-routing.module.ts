@@ -7,6 +7,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { TranitComponent } from './tranit/tranit.component';
 import { AddDriverComponent } from './add-driver/add-driver.component';
 import { DelDriverComponent } from './del-driver/del-driver.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'login',component:LogInComponent},
   {path:'transit',component:TranitComponent},
   {path:'add-driver',component:AddDriverComponent},
-  {path:'del-driver',component:DelDriverComponent}
+  {path:'del-driver',component:DelDriverComponent},
+  {path: 'payment',component:PaymentComponent}
 ];
 
 @NgModule({

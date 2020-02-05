@@ -17,10 +17,11 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './AuthenticationService/authentication.service';
 import { AddDriverComponent } from './add-driver/add-driver.component';
 import { DelDriverComponent } from './del-driver/del-driver.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     NavbarsComponent,
     RiderComponent,
     HomePageComponent,
@@ -30,8 +31,8 @@ import { DelDriverComponent } from './del-driver/del-driver.component';
     DriverConfirmRideComponent,
     TranitComponent,
     AddDriverComponent,
-    DelDriverComponent
-
+    DelDriverComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
