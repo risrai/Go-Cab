@@ -16,6 +16,7 @@ import { TranitComponent } from './tranit/tranit.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './AuthenticationService/authentication.service';
 import { PaymentComponent } from './payment/payment.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PaymentComponent } from './payment/payment.component';
     DriverConfirmRideComponent,
     TranitComponent,
     PaymentComponent,
+    FooterComponent
 
   ],
   imports: [
