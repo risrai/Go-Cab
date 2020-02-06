@@ -14,6 +14,5 @@ export class DriverService {
 
     return this.http.post("http://localhost:8085/driver/add", driverService);
 
-
   }
 }
