@@ -5,5 +5,5 @@ export class DriverModel{
     email: string;
     carType: string;
     vehicleNo: string;
-    password: string; 
+    password: string;
 }

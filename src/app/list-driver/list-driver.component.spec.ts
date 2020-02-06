@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DelDriverComponent } from './del-driver.component';
+import { ListDriverComponent } from './list-driver.component';
 
-describe('DelDriverComponent', () => {
-  let component: DelDriverComponent;
-  let fixture: ComponentFixture<DelDriverComponent>;
+describe('ListDriverComponent', () => {
+  let component: ListDriverComponent;
+  let fixture: ComponentFixture<ListDriverComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DelDriverComponent ]
+      declarations: [ ListDriverComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DelDriverComponent);
+    fixture = TestBed.createComponent(ListDriverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

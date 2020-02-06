@@ -31,7 +31,7 @@ export class RiderComponent implements OnInit {
   onSubmit(){
    this.riderObj={"name":this.rider.name,"phoneNumber":this.rider.phoneNumber,"email":this.rider.email,
   "city":this.rider.city,"zipcode":this.rider.zipcode,"password":this.rider.password} ;
-
+    console.log(this.riderObj);
   this.riderService.doRiderRegistration(this.riderObj)
   .subscribe(
     data => {this.onDataReceived(data);

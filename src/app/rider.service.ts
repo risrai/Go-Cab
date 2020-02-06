@@ -10,7 +10,7 @@ export class RiderService {
   }
 
     doRiderRegistration(riderService) {
-
+      console.log(riderService);
       return this.http.post("http://localhost:8099/rider/add", riderService);
   }
 }

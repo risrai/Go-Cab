@@ -1,0 +1,22 @@
+<div class="col">
+    <h2>Available Transits</h2>
+    
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Ph No</th>
+        <th>Car Type</th>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transit of transits">
+            <td>{{transit.phoneNumber}}</td>
+            <td>{{transit.cabType}}</td>
+            <td>{{transit.name}}</td>
+            <td>{{transit.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>

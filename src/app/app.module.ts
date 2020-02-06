@@ -15,9 +15,12 @@ import { DriverConfirmRideComponent } from './driverservice/driver-confirm-ride/
 import { TranitComponent } from './tranit/tranit.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthenticationService } from './AuthenticationService/authentication.service';
-import { AddDriverComponent } from './add-driver/add-driver.component';
-import { DelDriverComponent } from './del-driver/del-driver.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ListDriverComponent } from './list-driver/list-driver.component';
+import { ListRiderComponent } from './list-rider/list-rider.component';
+import { ListDriverService } from './list-driver/list-driver.service';
+import { ListTransitComponent } from './list-transit/list-transit.component';
+import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -31,12 +34,11 @@ import { FooterComponent } from './footer/footer.component';
     DriverPopupComponent,
     DriverConfirmRideComponent,
     TranitComponent,
-    AddDriverComponent,
-    DelDriverComponent,
     PaymentComponent,
-
+    ListDriverComponent,
+    ListRiderComponent,
+    ListTransitComponent,
     FooterComponent
-
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
+    ListDriverService,
+    ListTransitService,
     ],
   bootstrap: [AppComponent]
 })
