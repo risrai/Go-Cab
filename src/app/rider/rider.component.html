@@ -22,7 +22,7 @@
 
   <div class="form-group col-md-12">
     <label for="phoneNumber">Phone Number</label>
-      <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[0-9]*"
+      <input type="text" class="form-control" required [(ngModel)]="rider.phoneNumber" pattern="[0-9]*"
       title="Only 10 digit number allowed" minlength="10" maxlength="10"  
       #phoneNumber="ngModel" [ngModelOptions]="{standalone: true}" id="phoneNumber">
       <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger ">
@@ -72,7 +72,7 @@
 
       <div class="form-group col-md-12">
         <label for="city">City</label>
-        <select id="city" class="form-control">
+        <select id="city" class="form-control"  [(ngModel)]="rider.city" [ngModelOptions]="{standalone:true}">
           <option selected>Choose...</option>
           <option>Bangalore</option>
           <option>New Delhi</option>
@@ -94,7 +94,7 @@
 
       <div class="form-group col-md-12">
         <label for="password">Password</label>
-        <input type="password" id="password" class="form-control " aria-describedby="passwordHelpInline">
+        <input type="password" id="password" class="form-control " [ngModelOptions]="{standalone: true}" [(ngModel)]="rider.password" aria-describedby="passwordHelpInline">
         <small id="passwordHelpInline" class="text-muted">
           Must be 8-20 characters long.
         </small>
