@@ -58,13 +58,13 @@
         </div>
 
         <div class="form-group col-md-12">
-          <label for="inputEmail3">Email Id</label>
-            <input type="email" class="form-control" id="inputEmail3" required [(ngModel)]="driver.inputEmail3"
-            #inputEmail3="ngModel" [ngModelOptions]="{standalone: true}">
-            <div *ngIf="!inputEmail3.value && inputEmail3.touched " class="alert alert-danger ">
+          <label for="emaile">Email Id</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="driver.email"
+            #email="ngModel" [ngModelOptions]="{standalone: true}">
+            <div *ngIf="!email.value && email.touched " class="alert alert-danger ">
               Field required
           </div>
-          <div *ngIf="inputEmail3.invalid && inputEmail3.dirty && inputEmail3.value" class="alert alert-danger">
+          <div *ngIf="email.invalid && email.dirty && email.value" class="alert alert-danger">
               Invalid format
           </div>
           </div>
@@ -131,8 +131,8 @@
           
           <div class="form-group col-md-12">
             <label for="Password">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" 
-            required [(ngModel)]="driver.exampleInputPassword1" #exampleInputPassword1="ngModel" [ngModelOptions]="{standalone: true}">
+            <input type="password" class="form-control" id="password" 
+            required [(ngModel)]="driver.password" #password="ngModel" [ngModelOptions]="{standalone: true}">
             <small id="passwordHelpInline" class="text-muted">
               Must be 8-20 characters long.
             </small>
