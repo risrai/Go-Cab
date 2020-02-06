@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {RiderModel} from 'src/app/model/RiderModel';
+import { RiderModel } from 'src/app/model/RiderModel';
 import { RiderService } from '../rider.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -32,13 +32,15 @@ export class RiderComponent implements OnInit {
    this.riderObj={"name":this.rider.name,"phoneNumber":this.rider.phoneNumber,"email":this.rider.email,
   "city":this.rider.city,"zipcode":this.rider.zipcode,"password":this.rider.password} ;
 
-  this.riderService.doRiderRegistration(this.rider)
+  this.riderService.doRiderRegistration(this.riderObj)
   .subscribe(
     data => {this.onDataReceived(data);
     },
      )
 
   }
+
+  
 }
 
 
