@@ -34,10 +34,10 @@ export class DriverComponent implements OnInit {
   onSubmit(){
 
     this.driverObj={"name":this.driver.name,"age":this.driver.age,"phoneNumber":this.driver.phoneNumber,
-    "carType":this.driver.carType,"vehicleNo":this.driver.vehicleNo,
-    "exampleInputPassword1":this.driver.exampleInputPassword1} ;
+    "email":this.driver.email,"carType":this.driver.carType,"vehicleNo":this.driver.vehicleNo,
+    "password":this.driver.password} ;
 
-    this.driverService.doDriverRegistration(this.driver)
+    this.driverService.doDriverRegistration(this.driverObj)
     .subscribe(
       data => {
         this.onDataReceived(data);

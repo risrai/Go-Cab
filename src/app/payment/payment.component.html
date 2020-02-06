@@ -1,10 +1,24 @@
-<div class="card nopadding mt-3 mb-4">
-    <div class="card-header  bg-info text-center text-light">
-        <strong><span class="fa fa-user-circle mr-2"></span> Driver Sign Up</strong>
-    </div>
-    <div class="card-body">
-        Payment due for the trip is:
-      </div>
-     
 
         
+<div class="card nopadding mt-3 mb-4">
+  <div class="card-header  bg-info text-center text-light">
+      <strong><span class="fa fa-user-circle mr-2"></span> Payment</strong>
+  </div>
+
+  
+
+    <div class="card-body mt-1">
+      
+        <form (ngSubmit)="onSubmit()" #paymentForm="ngForm" >
+          <div>
+             <p>You have reached the destination.</p>
+             <p>Payment due for the trip is: {{totalPrice}} </p>
+          </div>
+          <br>
+          <div class="d-flex justify-content-center ">
+            <button type="submit" class="btn btn-info"> Make Payment</button>
+          </div>
+
+        </form >
+      </div>
+    </div>

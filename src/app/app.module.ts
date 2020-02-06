@@ -21,6 +21,7 @@ import { ListRiderComponent } from './list-rider/list-rider.component';
 import { ListDriverService } from './list-driver/list-driver.service';
 import { ListTransitComponent } from './list-transit/list-transit.component';
 import { ListTransitService } from './list-transit/list-transit.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ListTransitService } from './list-transit/list-transit.service';
     ListDriverComponent,
     ListRiderComponent,
     ListTransitComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

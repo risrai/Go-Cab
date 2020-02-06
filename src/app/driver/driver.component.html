@@ -57,6 +57,17 @@
             </div>
         </div>
 
+        <div class="form-group col-md-12">
+          <label for="emaile">Email Id</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="driver.email"
+            #email="ngModel" [ngModelOptions]="{standalone: true}">
+            <div *ngIf="!email.value && email.touched " class="alert alert-danger ">
+              Field required
+          </div>
+          <div *ngIf="email.invalid && email.dirty && email.value" class="alert alert-danger">
+              Invalid format
+          </div>
+          </div>
           
 
           <div class="form-group col-md-12">
@@ -120,8 +131,8 @@
           
           <div class="form-group col-md-12">
             <label for="Password">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" 
-            required [(ngModel)]="driver.exampleInputPassword1" #exampleInputPassword1="ngModel" [ngModelOptions]="{standalone: true}">
+            <input type="password" class="form-control" id="password" 
+            required [(ngModel)]="driver.password" #password="ngModel" [ngModelOptions]="{standalone: true}">
             <small id="passwordHelpInline" class="text-muted">
               Must be 8-20 characters long.
             </small>
@@ -133,7 +144,7 @@
           </div>  -->
 
           <div class="d-flex justify-content-center ">
-            <button type="submit" class="btn btn-primary">Sign up</button>
+            <button type="submit" class="btn btn-info">Sign up</button>
           </div>
 
          
