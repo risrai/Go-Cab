@@ -3,6 +3,6 @@ export class DriverModel{
     age: string;
     phoneNumber: string;
     carType: string;
-    vehicleNo: string;
+    vehicleNo: string;    
     exampleInputPassword1: string; 
 }
