@@ -40,16 +40,15 @@ export class LogInComponent implements OnInit {
             setTimeout(()=>
               this.route.navigate(['transit']) 
             );
-            
-            
-          }
-          else{
+          } 
+        },  
+          error=>{
             this.isProcessing = false;
-            alert('Login Failed');
+            alert('Login Failed. User is not registered.');
             loginData.reset();
           }
-        } 
     );
-       
-  }
+            
+  
+}
 }

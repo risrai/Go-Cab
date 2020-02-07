@@ -4,6 +4,7 @@ import { LoginModel } from '../model/LoginModel';
 //import { RegisterUser } from '../model/registeruser';
 import { Observable } from 'rxjs';
 import { UserModel } from '../model/UserModel';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -18,7 +19,7 @@ export class AuthenticationService {
   
   
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router : Router) { }
 
   getAllUsers() : Observable<UserModel[]>{
     return this.http.get<UserModel[]>(this.url+"/list");
@@ -42,5 +43,12 @@ export class AuthenticationService {
 
   getToken():string {
     return localStorage.getItem('token');
+  }
+
+  doSessionRouting() {
+    let loggedIn = this.isLoggedIn();
+    if(!loggedIn) {
+      this.router.navigate(['login']);
+    }
   }
 }
