@@ -3,9 +3,10 @@
         <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
     </div>
 <!-- Source options -->
+<form #bookingForm="ngForm" >
 <div class="form-group col-md-12">
     <label for="source">Source</label>
-    <select id="inputState" class="form-control">
+    <select id="source" class="form-control" [(ngModel)]="booking.source" #source="ngModel" >
       <option selected>Choose your source</option>
       <option>Marathalli</option>
       <option>White Field</option>
@@ -16,8 +17,8 @@
   </div>
 
   <div class="form-group col-md-12">
-    <label for="source">Destination</label>
-    <select id="inputState" class="form-control" required>
+    <label for="destination">Destination</label>
+    <select id="inputState" class="form-control" [{ngModel}]="booking.destination" #destination="ngModel" required>
       <option selected>Choose your destination</option>
       <option>Yeshvantpur</option>
       <option>KIA</option>
@@ -31,8 +32,8 @@
 
 
 <div class="form-group col-md-12">
-    <label for="source">Your Cab</label>
-    <select id="inputState" class="form-control">
+    <label for="cabType">Your Cab</label>
+    <select id="inputState" class="form-control" [{ngModel}]="booking.cabType" #cabType="ngModel">
       <option selected>Choose your car</option>
       <option>Sedan</option>
       <option>Hatchback</option>
@@ -41,8 +42,8 @@
   </div>
 
 
-  <div class="d-flex justify-content-center ">
-    <button type="submit" class="btn btn-info">Find My Ride</button>
+  <div class="form-group col-md-4">
+    <button type="submit"  (click) = 'search_cabs()' class="btn btn-primary">Search</button>
   </div>
-  <br>
+</form>
 </div>
