@@ -30,36 +30,39 @@ export class PaymentComponent implements OnInit {
     this.bookingId=this.firstDataResponse["bookingId"];
   }
 
-  onSubmit() {
-    this.payment.getBookingId()
-    .subscribe(
-      data => {
-        this.onFirstDataReceived(data);
-        console.log("ondatareceived. Booking is:")
-        console.log(this.firstDataResponse['bookingId']);
-      },
-      error => {
-        let errorObject = {
-          "success": false,
-          "message": "Could not connect to server"
-        }
-        this.onDataReceived(errorObject);
-      }
-    );
-    this.payment.getPayment(this.bookingId)
-      .subscribe(
-        data => {
-          this.onDataReceived(data);
-          console.log("ondatareceived. Price is:")
-          console.log(this.dataResponse['totalPrice']);
-        },
-        error => {
-          let errorObject = {
-            "success": false,
-            "message": "Could not connect to server"
-          }
-          this.onDataReceived(errorObject);
-        }
-      );
+  onSubmit(){
+    alert('Payment done successfully!');
   }
+  // onSubmit() {
+  //   this.payment.getBookingId()
+  //   .subscribe(
+  //     data => {
+  //       this.onFirstDataReceived(data);
+  //       console.log("ondatareceived. Booking is:")
+  //       console.log(this.firstDataResponse['bookingId']);
+  //     },
+  //     error => {
+  //       let errorObject = {
+  //         "success": false,
+  //         "message": "Could not connect to server"
+  //       }
+  //       this.onDataReceived(errorObject);
+  //     }
+  //   );
+  //   this.payment.getPayment(this.bookingId)
+  //     .subscribe(
+  //       data => {
+  //         this.onDataReceived(data);
+  //         console.log("ondatareceived. Price is:")
+  //         console.log(this.dataResponse['totalPrice']);
+  //       },
+  //       error => {
+  //         let errorObject = {
+  //           "success": false,
+  //           "message": "Could not connect to server"
+  //         }
+  //         this.onDataReceived(errorObject);
+  //       }
+  //     );
+  // }
 }

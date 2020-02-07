@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DriverModel} from 'src/app/model/DriverModel';
 import { DriverService } from '../driver.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-driver',
@@ -18,7 +19,7 @@ export class DriverComponent implements OnInit {
   @ViewChild('driverForm', { static: false }) form: any;
   toastr: any;
   
-  constructor(private driverService :DriverService) { }
+  constructor(private driverService :DriverService,private router : Router) { }
 
   ngOnInit() {
    
@@ -45,7 +46,7 @@ export class DriverComponent implements OnInit {
       },
       
     )
-    
+    //this.router.navigate(['login']);
   }
 
 }
