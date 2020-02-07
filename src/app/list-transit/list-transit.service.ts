@@ -12,7 +12,7 @@ const httpOptions = {
   
     constructor(private http:HttpClient) {}
   
-    private userUrl = 'http://localhost:8085/transit/';
+    private userUrl = 'http://localhost:8090/transit/search';
     //private userUrl = '/api';
   
     public getUsers() {
