@@ -30,6 +30,9 @@ export class PaymentComponent implements OnInit {
     this.bookingId=this.firstDataResponse["bookingId"];
   }
 
+  onSubmit(){
+    alert('Payment done successfully!');
+  }
   // onSubmit() {
   //   this.payment.getBookingId()
   //   .subscribe(

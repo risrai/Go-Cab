@@ -4,18 +4,27 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th>Ph No</th>
+        <th>Phone No</th>
         <th>Car Type</th>
-        <th>Name</th>
+        <th>Driver's name</th>
         <th>Status</th>
       </tr>
       </thead>
       <tbody>
         <tr *ngFor="let transit of transits">
-            <td>{{transit.phoneNumber}}</td>
+            <td>9019192365</td>
             <td>{{transit.cabType}}</td>
             <td>{{transit.name}}</td>
             <td>{{transit.status}}</td>
+            <td><button class="btn btn-success"  routerLink="/list-payment"> Book Ride</button></td>
+          
+            <!-- <script>
+              function myFunction()
+              {
+                var x=Math.floor((Math.random()*100)+1);
+              }
+            </script>
+             -->
         </tr>
       </tbody>
     </table>

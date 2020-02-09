@@ -3,40 +3,40 @@
         <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
     </div>
 <!-- Source options -->
-<div class="form-group col-md-12">
-    <label for="source">Source</label>
-    <select id="inputState" class="form-control">
-      <option selected>Choose your source</option>
-      <option>Marathalli</option>
-      <option>White Field</option>
-      <option>Bellandur</option>
-      <option>Kaadubeeshnahali</option>
-      <option>Doodanekundi</option>
-    </select>
-  </div>
+<form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
 
   <div class="form-group col-md-12">
-    <label for="source">Destination</label>
-    <select id="inputState" class="form-control" required>
-      <option selected>Choose your destination</option>
-      <option>Yeshvantpur</option>
-      <option>KIA</option>
+    <label for="source">Source</label>
+    <select id="source" class="form-control" required [(ngModel)]="booking.source"
+     #source="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose your source</option>
       <option>Majestic</option>
+      <option>KIA</option>
       <option>Wonderla</option>
-      <option>K.R Puram</option>
-      <option>Hoodi</option>
-
     </select>
   </div>
 
 
-<div class="form-group col-md-12">
-    <label for="source">Your Cab</label>
-    <select id="inputState" class="form-control">
-      <option selected>Choose your car</option>
-      <option>Sedan</option>
+  <div class="form-group col-md-12">
+    <label for="destination">Destination</label>
+    <select id="source" class="form-control" required [(ngModel)]="booking.destination"
+     #destination="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose your destination</option>
+      <option>WhiteField</option>
+      <option>Koramangla</option>
+      <option>Silk Board</option>
+    </select>
+  </div>
+
+
+  <div class="form-group col-md-12">
+    <label for="carType">Car Type</label>
+    <select id="carType" class="form-control" required [(ngModel)]="booking.carType"
+     #carType="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose Car Type</option>
       <option>Hatchback</option>
-      <option>SUV</option> 
+      <option>Sedan</option>
+      <option>SUV</option>
     </select>
   </div>
 
@@ -44,5 +44,6 @@
   <div class="d-flex justify-content-center ">
     <button type="submit" class="btn btn-info">Find My Ride</button>
   </div>
+</form>
   <br>
 </div>
