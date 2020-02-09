@@ -28,6 +28,19 @@
                 </div>
         
             </div>
+
+            <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+                <div class="card text-center m-3">
+                    <div class="card-header">
+                        <strong>Login</strong>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">{{dataResponse["message"]}}</h5> -->
+                        <p class="card-text">{{dataResponse["message"]}}</p>
+                        <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
+                    </div>
+                </div>
+            </div>
         
     </div>
    

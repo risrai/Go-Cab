@@ -15,8 +15,10 @@ export class DriverComponent implements OnInit {
   driverObj:Object;
   httpClient:HttpClient;
   dataResponse: Object;
+  isProcessing : boolean = false;
+  showToast = false;
 
-  @ViewChild('driverForm', { static: false }) form: any;
+  @ViewChild('driverForm' , {static: false}) form: any;
   toastr: any;
   
   constructor(private driverService :DriverService,private router : Router) { }
@@ -26,9 +28,9 @@ export class DriverComponent implements OnInit {
     
   }
 
-  onDataReceived(data) {
+  onDataReceived(data: Object) {
     this.dataResponse = data;
-
+    this.showToast = true;
   }
 
 
@@ -37,16 +39,30 @@ export class DriverComponent implements OnInit {
     this.driverObj={"name":this.driver.name,"age":this.driver.age,"phoneNumber":this.driver.phoneNumber,
     "email":this.driver.email,"carType":this.driver.carType,"vehicleNo":this.driver.vehicleNo,
     "password":this.driver.password} ;
-
+    this.isProcessing = true;
     this.driverService.doDriverRegistration(this.driverObj)
     .subscribe(
       data => {
+        this.isProcessing = false;
         this.onDataReceived(data);
        
       },
-      
+      error=>{
+        let errorObject = {
+          "success" : false,
+          "message" : "Could not connect to server"
+        }
+        this.onDataReceived(errorObject);
+        this.isProcessing = false;
+      }
     )
     //this.router.navigate(['login']);
+  }
+
+  closeToast() {
+    this.showToast = false;
+    this.router.navigate(['login']);
+    this.form.reset();
   }
 
 }

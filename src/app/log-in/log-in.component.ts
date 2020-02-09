@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginModel } from '../model/LoginModel';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +14,15 @@ export class LogInComponent implements OnInit {
 
   ldata : LoginModel;
   flag : any ;
+  showToast = false;
   isProcessing : boolean = false;
+  successMsg : String = "Login successful";
+  failureMsg : String = "Login failed. User not registered";
+  dataResponse : object;
+  submitted = false;
+
+  @ViewChild('loginForm' , {static: false}) form: any;
+
   constructor(private _auth:AuthenticationService,
     private route: Router,
     private socialAuthService : AuthenticationService,
@@ -26,29 +34,57 @@ export class LogInComponent implements OnInit {
     
   }
 
+  onDataReceived(Msg : Object)
+  {
+   // data = this.successMsg;
+    this.dataResponse = Msg;
+    this.showToast = true;
+  }
+
   onLogin(loginData: NgForm){
     this.isProcessing = true;
+    this.submitted = true;
     //console.log(loginData.value);
     this._auth.login(this.ldata).subscribe(
-      res=>{
-          this.flag = res;
-          if(this.flag){
-            this.isProcessing = false;
-            localStorage.setItem('token',this.flag.jwt);
-            alert('Login Successful');
+      data=>{
+        let successObj = {
+          "success" : true,
+          "message" : this.successMsg
+        }
+        this.onDataReceived(successObj);
+        this.isProcessing = false;
+        this.showToast = true;
+         // this.flag = res;
+         // if(this.flag){
+            
+            
+            
+            //alert('Login Successful');
             //window.location.reload();
             setTimeout(()=>
               this.route.navigate(['transit']) 
             );
-          } 
+            localStorage.setItem('token',this.flag.jwt);
+          
         },  
           error=>{
-            this.isProcessing = false;
-            alert('Login Failed. User is not registered.');
-            loginData.reset();
+            let errorObject = {
+              "success" : false,
+              "message" : this.failureMsg
+            // this.isProcessing = false;
+            // alert('Login Failed. User is not registered.');
+            // loginData.reset();
           }
+          this.onDataReceived(errorObject);
+          this.isProcessing = false;
+        }
     );
             
   
+}
+
+closeToast() {
+  this.showToast = false;
+  this.form.reset();
 }
 }
