@@ -3,7 +3,7 @@
         <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
     </div>
 <!-- Source options -->
-<form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+<form  #bookingForm="ngForm">
 
   <div class="form-group col-md-12">
     <label for="source">Source</label>
@@ -42,7 +42,7 @@
 
 
   <div class="d-flex justify-content-center ">
-    <button type="submit" class="btn btn-info">Find My Ride</button>
+    <button type="submit" routerLink="/searchRide"class="btn btn-info">Find My Ride</button>
   </div>
 </form>
   <br>
