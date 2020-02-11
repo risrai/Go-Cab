@@ -1,6 +1,10 @@
 <div class="col">
     <h2 align="center"> Driver Details</h2>
     
+    
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    
+
     <table matSort (matSortChange) = "sortDrivers($event)" matSortActive="name" matSortDirection="asc" class="table table-striped">
       <thead>
       <tr>
@@ -13,6 +17,7 @@
       </tr>
       </thead>
       <tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
         <tr *ngFor="let driver of sortedDrivers | paginate: { itemsPerPage: 10, currentPage: p }">
           <td>{{driver.name}}</td>
           <td>{{driver.age}}</td>
@@ -21,7 +26,7 @@
           <td>{{driver.carNumber}}</td>
           <td><button class="btn btn-danger" routerLink="/list-rider"> Delete Driver</button></td>
         </tr>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        
       </tbody>
     </table>
     </div>
