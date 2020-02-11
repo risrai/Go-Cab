@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   dataResponse: Object;
   firstDataResponse: Object;
 
-  @ViewChild('paymentForm', { static: false }) form: any;
+  @ViewChild('paymentForm') form: any;
   paymentModel = new PaymentModel();
 
   constructor(private payment: PaymentService) { }

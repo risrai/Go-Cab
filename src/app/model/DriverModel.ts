@@ -4,6 +4,6 @@ export class DriverModel{
     phoneNumber: string;
     email: string;
     carType: string;
-    vehicleNo: string;
+    carNumber: string;
     password: string;
 }

@@ -20,12 +20,12 @@ export class DriverComponent implements OnInit {
 
   @ViewChild('driverForm' , {static: false}) form: any;
   toastr: any;
-  
+
   constructor(private driverService :DriverService,private router : Router) { }
 
   ngOnInit() {
-   
-    
+
+
   }
 
   onDataReceived(data: Object) {
@@ -37,7 +37,7 @@ export class DriverComponent implements OnInit {
   onSubmit(){
 
     this.driverObj={"name":this.driver.name,"age":this.driver.age,"phoneNumber":this.driver.phoneNumber,
-    "email":this.driver.email,"carType":this.driver.carType,"vehicleNo":this.driver.vehicleNo,
+    "email":this.driver.email,"carType":this.driver.carType,"carNumber":this.driver.carNumber,
     "password":this.driver.password} ;
     this.isProcessing = true;
     this.driverService.doDriverRegistration(this.driverObj)
@@ -45,7 +45,7 @@ export class DriverComponent implements OnInit {
       data => {
         this.isProcessing = false;
         this.onDataReceived(data);
-       
+
       },
       error=>{
         let errorObject = {
@@ -66,4 +66,3 @@ export class DriverComponent implements OnInit {
   }
 
 }
-
