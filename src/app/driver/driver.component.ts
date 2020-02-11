@@ -15,7 +15,7 @@ export class DriverComponent implements OnInit {
   httpClient:HttpClient;
   dataResponse: Object;
 
-  @ViewChild('driverForm', { static: false }) form: any;
+  @ViewChild('driverForm') form: any;
   toastr: any;
   
   constructor(private driverService :DriverService) { }
@@ -34,7 +34,7 @@ export class DriverComponent implements OnInit {
   onSubmit(){
 
     this.driverObj={"name":this.driver.name,"age":this.driver.age,"phoneNumber":this.driver.phoneNumber,
-    "email":this.driver.email,"carType":this.driver.carType,"vehicleNo":this.driver.vehicleNo,
+    "email":this.driver.email,"carType":this.driver.carType,"carNumber":this.driver.carNumber,
     "password":this.driver.password} ;
 
     this.driverService.doDriverRegistration(this.driverObj)

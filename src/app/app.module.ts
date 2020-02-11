@@ -22,6 +22,9 @@ import { ListDriverService } from './list-driver/list-driver.service';
 import { ListTransitComponent } from './list-transit/list-transit.component';
 import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
+import {MatSortModule} from '@angular/material';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,9 +44,12 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    MatSortModule,
     HttpClientModule
   ],
   providers: [ AuthGuard ,

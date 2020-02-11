@@ -15,7 +15,7 @@ export class RiderComponent implements OnInit {
   httpClient:HttpClient;
   dataResponse: Object;
 
-  @ViewChild('riderForm', { static: false }) form: any;
+  @ViewChild('riderForm') form: any;
   toastr: any;
 
   constructor(private riderService:RiderService) { }

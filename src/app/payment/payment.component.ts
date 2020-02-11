@@ -13,7 +13,7 @@ export class PaymentComponent implements OnInit {
   dataResponse: Object;
   firstDataResponse: Object;
 
-  @ViewChild('paymentForm', { static: false }) form: any;
+  @ViewChild('paymentForm') form: any;
   paymentModel = new PaymentModel();
 
   constructor(private payment: PaymentService) { }
@@ -30,7 +30,7 @@ export class PaymentComponent implements OnInit {
     this.bookingId=this.firstDataResponse["bookingId"];
   }
 
-  onSubmit() {
+  /*onSubmit() {
     this.payment.getBookingId()
     .subscribe(
       data => {
@@ -61,5 +61,5 @@ export class PaymentComponent implements OnInit {
           this.onDataReceived(errorObject);
         }
       );
-  }
+  }*/
 }
