@@ -25,6 +25,9 @@ import { FooterComponent } from './footer/footer.component';
 import {MatSortModule} from '@angular/material';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { TranitService } from './tranit.service';
 
 @NgModule({
   declarations: [
@@ -50,12 +53,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     NgxPaginationModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+  	ToastrModule.forRoot()
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
     ListDriverService,
     ListTransitService,
+    TranitService
     ],
   bootstrap: [AppComponent]
 })

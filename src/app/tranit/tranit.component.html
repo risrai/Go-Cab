@@ -3,45 +3,81 @@
         <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
     </div>
 <!-- Source options -->
-<div class="form-group col-md-12">
-    <label for="source">Source</label>
-    <select id="inputState" class="form-control">
-      <option selected>Choose your source</option>
-      <option>Marathalli</option>
-      <option>White Field</option>
-      <option>Bellandur</option>
-      <option>Kaadubeeshnahali</option>
-      <option>Doodanekundi</option>
-    </select>
-  </div>
+<form  #bookingForm="ngForm">
 
   <div class="form-group col-md-12">
-    <label for="source">Destination</label>
-    <select id="inputState" class="form-control" required>
-      <option selected>Choose your destination</option>
-      <option>Yeshvantpur</option>
-      <option>KIA</option>
+    <label for="source">Source</label>
+    <select id="source" class="form-control" required [(ngModel)]="booking.source"
+     #source="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose your source</option>
       <option>Majestic</option>
+      <option>KIA</option>
       <option>Wonderla</option>
-      <option>K.R Puram</option>
-      <option>Hoodi</option>
-
     </select>
   </div>
 
 
-<div class="form-group col-md-12">
-    <label for="source">Your Cab</label>
-    <select id="inputState" class="form-control">
-      <option selected>Choose your car</option>
-      <option>Sedan</option>
+  <div class="form-group col-md-12">
+    <label for="destination">Destination</label>
+    <select id="destination" class="form-control" required [(ngModel)]="booking.destination"
+     #destination="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose your destination</option>
+      <option>WhiteField</option>
+      <option>Koramangla</option>
+      <option>Silk Board</option>
+    </select>
+  </div>
+
+
+  <div class="form-group col-md-12">
+    <label for="carType">Car Type {{carType}}</label>
+    <select id="carType2" class="form-control" required [(ngModel)]="carType"
+     #carType2="ngModel" [ngModelOptions]="{standalone: true}">
+      <option selected>Choose Car Type</option>
       <option>Hatchback</option>
-      <option>SUV</option> 
+      <option>Sedan</option>
+      <option >SUV</option>
     </select>
   </div>
 
 
-  <div class="form-group col-md-4">
-    <button routerLink="/list-transit">Search</button>
+  <div class="d-flex justify-content-center ">
+    <button type="submit" (click)="searchMyRide()" class="btn btn-info">Find My Ride</button>
+    <!-- routerLink="/searchRide" -->
   </div>
+  <br>
+</form>
 </div>
+
+<div class="col">
+  <h5>Available Transits</h5>
+<table [hidden]="hidden" class="table table-hover table-bordered table-dark" align="center">
+  <thead class="text-white th">
+  <tr align="center">
+    <th>Phone No</th>
+    <th>Car Type</th>
+    <th>Driver's name</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transit of transits">
+        <td>9019192365</td>
+        <td>{{transit.cabType}}</td>
+        <td>{{transit.name}}</td>
+        <td>{{transit.status}}</td>
+        <td><button class="btn btn-success" (click)="addDetails()"> Book Ride</button></td>
+          <!-- routerLink="/list-payment" -->
+         
+    </tr>
+  </tbody>
+</table>
+</div>
+  <br>
+
+  <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+    </div>
+  
+  </div>

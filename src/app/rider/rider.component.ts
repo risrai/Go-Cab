@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {RiderModel} from 'src/app/model/RiderModel';
+import { RiderModel } from 'src/app/model/RiderModel';
 import { RiderService } from '../rider.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -39,6 +39,8 @@ export class RiderComponent implements OnInit {
      )
 
   }
+
+  
 }
 
 
