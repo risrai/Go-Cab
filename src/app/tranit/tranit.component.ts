@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BookingModel } from '../model/BookingModel.';
 import { BookingService } from '../booking.service';
+import { TranitService } from '../tranit.service';
 
 @Component({
   selector: 'app-tranit',
@@ -10,32 +11,32 @@ import { BookingService } from '../booking.service';
 })
 export class TranitComponent implements OnInit {
 
-  booking= new BookingModel();
-  bookingObj:Object;
+ booking = new BookingModel();
   httpClient:HttpClient;
   dataResponse: Object;
 
-  constructor(private bookingService:BookingService) { }
+  constructor(private tranitService:TranitService) { }
 
   @ViewChild('bookingForm', { static: false }) form: any;
   toastr: any;
+  public carType;
+  public transits;
+  public hidden=true ;
 
   ngOnInit() {
   }
+  
 
   onDataReceived(data) {
     this.dataResponse = data;
 
   }
-
-  onSubmit()
+  searchMyRide()
   {
-    this.bookingObj={"bookingId":this.booking.bookingId,"source":this.booking.source,
-    "destination":this.booking.destination,"cabType":this.booking.cabType}
-    this.bookingService.doBooking(this.bookingObj)
-    .subscribe(
-      data => {this.onDataReceived(data);
-      },
-       )
+    this.tranitService.searchMyRide(this.carType)
+    .subscribe(data=>{this.transits=data});
+    this.hidden=false ;
   }
+
+ 
 }

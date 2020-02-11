@@ -16,15 +16,8 @@
             <td>{{transit.cabType}}</td>
             <td>{{transit.name}}</td>
             <td>{{transit.status}}</td>
-            <td><button class="btn btn-success"  routerLink="/list-payment"> Book Ride</button></td>
-          
-            <!-- <script>
-              function myFunction()
-              {
-                var x=Math.floor((Math.random()*100)+1);
-              }
-            </script>
-             -->
+            <td><button class="btn btn-success" (click)="addDetails()" 
+              routerLink="/list-payment"> Book Ride</button></td>
         </tr>
       </tbody>
     </table>

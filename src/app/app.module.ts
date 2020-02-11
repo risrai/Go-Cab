@@ -24,6 +24,7 @@ import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { TranitService } from './tranit.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ToastrModule } from 'ngx-toastr';
     AuthenticationService ,
     ListDriverService,
     ListTransitService,
+    TranitService
     ],
   bootstrap: [AppComponent]
 })

@@ -8,7 +8,5 @@ export class BookingService {
 
   constructor(private http:HttpClient) {
   }
-    doBooking(bookingService){
-    return this.http.post("http://localhost:8099/booking/add", bookingService);
-   }
+    
 }
