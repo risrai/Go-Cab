@@ -29,10 +29,13 @@ export class LogInComponent implements OnInit {
     private http:HttpClient) { 
     this.ldata = new LoginModel();
   }
+  
 
   ngOnInit() {
-    
+    this._auth.logout();
   }
+  
+
 
   onDataReceived(Msg : Object)
   {
@@ -47,13 +50,12 @@ export class LogInComponent implements OnInit {
     //console.log(loginData.value);
     this._auth.login(this.ldata).subscribe(
       data=>{
-        let successObj = {
-          "success" : true,
-          "message" : this.successMsg
-        }
-        this.onDataReceived(successObj);
         this.isProcessing = false;
         this.showToast = true;
+        this.route.navigate(['transit']); 
+        },
+        // this.onDataReceived(successObj);
+        
          // this.flag = res;
          // if(this.flag){
             
@@ -61,12 +63,11 @@ export class LogInComponent implements OnInit {
             
             //alert('Login Successful');
             //window.location.reload();
-            setTimeout(()=>
-              this.route.navigate(['transit']) 
-            );
-            localStorage.setItem('token',this.flag.jwt);
+            // setTimeout(()=>
+            //   this.route.navigate(['transit']) 
+            // );
+            // localStorage.setItem('token',this.flag.jwt);
           
-        },  
           error=>{
             let errorObject = {
               "success" : false,
