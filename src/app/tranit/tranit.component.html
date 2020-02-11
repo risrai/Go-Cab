@@ -45,15 +45,20 @@
     <button type="submit" (click)="searchMyRide()" class="btn btn-info">Find My Ride</button>
     <!-- routerLink="/searchRide" -->
   </div>
+  <br>
 </form>
+</div>
 
-<table [hidden]="hidden" class="table table-striped">
-  <thead>
-  <tr>
+<div class="col">
+  <h5>Available Transits</h5>
+<table [hidden]="hidden" class="table table-hover table-bordered table-dark" align="center">
+  <thead class="text-white th">
+  <tr align="center">
     <th>Phone No</th>
     <th>Car Type</th>
     <th>Driver's name</th>
     <th>Status</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -68,5 +73,11 @@
     </tr>
   </tbody>
 </table>
-  <br>
 </div>
+  <br>
+
+  <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+    </div>
+  
+  </div>
