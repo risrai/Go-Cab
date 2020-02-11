@@ -9,6 +9,9 @@
     <label for="source">Source</label>
     <select id="source" class="form-control" required [(ngModel)]="booking.source"
      #source="ngModel" [ngModelOptions]="{standalone: true}">
+     <div *ngIf="!source.value && source.touched " class="alert alert-danger ">
+      Field required
+  </div>
       <option selected>Choose your source</option>
       <option>Majestic</option>
       <option>KIA</option>
@@ -21,6 +24,9 @@
     <label for="destination">Destination</label>
     <select id="destination" class="form-control" required [(ngModel)]="booking.destination"
      #destination="ngModel" [ngModelOptions]="{standalone: true}">
+     <div *ngIf="!destination.value && destination.touched " class="alert alert-danger ">
+      Field required
+  </div>
       <option selected>Choose your destination</option>
       <option>WhiteField</option>
       <option>Koramangla</option>
@@ -33,6 +39,9 @@
     <label for="carType">Car Type {{carType}}</label>
     <select id="carType2" class="form-control" required [(ngModel)]="carType"
      #carType2="ngModel" [ngModelOptions]="{standalone: true}">
+     <div *ngIf="!carType2.value && carType2.touched " class="alert alert-danger ">
+      Field required
+  </div>
       <option selected>Choose Car Type</option>
       <option>Hatchback</option>
       <option>Sedan</option>
@@ -49,11 +58,12 @@
 </form>
 </div>
 
-<div class="col">
-  <h5>Available Transits</h5>
-<table [hidden]="hidden" class="table table-hover table-bordered table-dark" align="center">
+<div [hidden]="hidden" class="col">
+<h4 class="h text-white text-center bg-dark" >Available Transits</h4>
+<table class="table table-hover table-bordered table-dark">
+  
   <thead class="text-white th">
-  <tr align="center">
+  <tr>
     <th>Phone No</th>
     <th>Car Type</th>
     <th>Driver's name</th>
