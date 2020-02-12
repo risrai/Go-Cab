@@ -1,5 +1,6 @@
 
   <footer>
+    <br>
   <div id="Contact" class="container-fluid bg" style="background-color: rgb(217, 223, 223);">
     <h2 class="text-center blue-heading">CONTACT US</h2>
     <div class="row">
@@ -22,7 +23,7 @@
                 <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
                 <div class="row">
                   <div class="col-sm-12 form-group">
-                    <button type="btn btn-submit pull-right" class="btn btn-info">Send</button>
+                    <button (click) = "feed()" type="btn btn-submit pull-right" class="btn btn-info">Send</button>
                   </div>
                 </div>
                 <br>
@@ -33,5 +34,18 @@
 
      <div class="text-center" style="background-color: rgb(46, 47, 48); color: white;">
   <p>© Copyright(2020) GoCab Cab Services Pvt .Ltd</p>
+  <a href= "https://www.facebook.com/GoCab-106223754291580/" target="_blank"> <img src="assets/facebook.png" alt="Facebook Logo"> </a>
   </div>
+
+  <!-- <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+    <div class="card text-center m-3">
+        <div class="card-header">
+            <strong>Feedback</strong>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Feedback registered successfully!</p>
+            <button (click)="closeToast()" routerLink="/goFirst" class="btn btn-info text-white">Close</button>
+        </div>
+    </div>
+</div> -->
     </footer>

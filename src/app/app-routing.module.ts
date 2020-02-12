@@ -26,7 +26,8 @@ const routes: Routes = [
   {path:'list-transit',component:ListTransitComponent},
   {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
   {path:'searchRide',component:ListTransitComponent},
-  {path:'list-payment',component:PaymentComponent,canActivate:[AuthGuard]}
+  {path:'list-payment',component:PaymentComponent},
+  {path:'goFirst',component:TranitComponent}
 ];
 
 @NgModule({

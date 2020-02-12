@@ -8,17 +8,26 @@
 
 
     <div class="card-body mt-1">
-
-        <form #paymentForm="ngForm" >
+      
+        <form  #paymentForm="ngForm" >
+          <!-- (ngSubmit)="onSubmit()" -->
           <div>
-             <p>You have reached the destination.</p>
-             <!-- <p>Payment due for the trip is: {{totalPrice}} </p> -->
-             <p>Payment due for the trip is: Rs. 789 </p>
+            Your Ride has been successfully booked.
+            Click below to generate fare. 
           </div>
+          <!-- <div>
+             <p>You have reached the destination.</p>
+             <p>Payment due for the trip is: Rs. 509 </p>
+          </div> -->
           <br>
           <div class="d-flex justify-content-center ">
-            <button type="submit" class="btn btn-info"> Make Payment</button>
+            <button type="submit" (click)="getFareTrip()" class="btn btn-info"> Generate Payment</button>
           </div>
+
+      <div [hidden]="hidden" >
+        <h5 *ngFor= "let pay of paymentModel" {{pay.fare}} > </h5>  
+      </div>
+
 
         </form >
       </div>
