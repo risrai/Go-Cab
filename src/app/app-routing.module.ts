@@ -22,7 +22,8 @@ const routes: Routes = [
   {path:'list-transit',component:ListTransitComponent},
   {path: 'payment',component:PaymentComponent},
   {path:'searchRide',component:ListTransitComponent},
-  {path:'list-payment',component:PaymentComponent}
+  {path:'list-payment',component:PaymentComponent},
+  {path:'goFirst',component:TranitComponent}
 ];
 
 @NgModule({

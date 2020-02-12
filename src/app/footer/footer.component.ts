@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  showToast = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  feed()
+  {
+     alert('Feedback registered successfully!');
+  }
+
 
 }
