@@ -19,6 +19,19 @@
         <option>KIA</option>
         <option>Wonderla</option>
       </select>
+  <div class="form-group col-md-12">
+    <label for="destination">Destination</label>
+    <select id="destination" class="form-control" required [(ngModel)]="booking.destination"
+     #destination="ngModel" [ngModelOptions]="{standalone: true}">
+     <div *ngIf="!destination.value && destination.touched " class="alert alert-danger ">
+      Field required
+  </div>
+      <option selected>Choose your destination</option>
+      <option>WhiteField</option>
+      <option>Koramangla</option>
+      <option>Silk Board</option>
+    </select>
+  </div>
 
       <div *ngIf="!source.value && source.touched " class="alert alert-danger ">
         Field required
@@ -28,6 +41,19 @@
       </div>
 
     </div>
+  <div class="form-group col-md-12">
+    <label for="carType">Car Type {{carType}}</label>
+    <select id="carType2" class="form-control" required [(ngModel)]="carType"
+     #carType2="ngModel" [ngModelOptions]="{standalone: true}">
+     <div *ngIf="!carType2.value && carType2.touched " class="alert alert-danger ">
+      Field required
+  </div>
+      <option selected>Choose Car Type</option>
+      <option>Hatchback</option>
+      <option>Sedan</option>
+      <option >SUV</option>
+    </select>
+  </div>
 
 
     <div class="form-group col-md-12">

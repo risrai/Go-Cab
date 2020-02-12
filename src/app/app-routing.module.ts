@@ -9,6 +9,10 @@ import { ListDriverComponent } from './list-driver/list-driver.component';
 import { ListRiderComponent } from './list-rider/list-rider.component';
 import { ListTransitComponent } from './list-transit/list-transit.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AuthGuard } from './auth/auth.guard';
+import { 
+  RoleGuardService as RoleGuard 
+} from './auth/role-guard.service';
 
 
 const routes: Routes = [
@@ -16,11 +20,11 @@ const routes: Routes = [
   {path:'driver',component: DriverComponent} ,
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
-  {path:'transit',component:TranitComponent},
-  {path:'list-driver',component:ListDriverComponent},
-  {path:'list-rider',component:ListRiderComponent},
+  {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'list-driver',component:ListDriverComponent,canActivate:[AuthGuard]},
+  {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
   {path:'list-transit',component:ListTransitComponent},
-  {path: 'payment',component:PaymentComponent},
+  {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
   {path:'searchRide',component:ListTransitComponent},
   {path:'list-payment',component:PaymentComponent},
   {path:'goFirst',component:TranitComponent}

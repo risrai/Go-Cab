@@ -5,6 +5,8 @@ import { LoginModel } from '../model/LoginModel';
 import { Observable } from 'rxjs';
 import { UserModel } from '../model/UserModel';
 import { Router } from '@angular/router';
+import { AuthResponseModel } from '../model/AuthResponseModel';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -13,10 +15,10 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
   
   
-  private url = "http://localhost:8086/user";
+  private url = "http://localhost:8762/api";
   options: any;
   flag:any;
-  
+  //authResponse : any;
   
 
   constructor(private http:HttpClient,private router : Router) { }
@@ -28,21 +30,30 @@ export class AuthenticationService {
   login(loginData: LoginModel) {
 
     this.options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    return this.http.post(this.url+"/authenticate",JSON.stringify(loginData),this.options);
+    return this.http.post<any>(this.url+"/signin",JSON.stringify(loginData),this.options)
+    .pipe(
+      map(authResponse=>{
+        if(authResponse){
+      // store user details and jwt token in the local storage to keep the user logged in between page refreshes
+      localStorage.setItem('currentUser', JSON.stringify(authResponse));
+      }
+      return authResponse;
+    })
+    );
    // throw new Error("Method not implemented.");
   }
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('currentUser');
   }
 
   isLoggedIn() {
     
-    return !!localStorage.getItem('token');
+    return !!localStorage.getItem('currentUser');
   }
 
   getToken():string {
-    return localStorage.getItem('token');
+    return localStorage.getItem('currentUser');
   }
 
   doSessionRouting() {

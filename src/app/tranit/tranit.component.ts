@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BookingModel } from '../model/BookingModel.';
-import { BookingService } from '../booking.service';
 import { TranitService } from '../tranit.service';
 import { TransitModel } from '../model/TransitModel';
 import { PaymentModel } from '../model/PaymentModel';
@@ -21,6 +20,9 @@ export class TranitComponent implements OnInit {
   httpClient:HttpClient;
   dataResponse: Object;
   
+ // isProcessing: boolean;
+  
+
   constructor(private tranitService:TranitService) { }
 
   @ViewChild('bookingForm', { static: false }) form: any;
@@ -38,11 +40,11 @@ export class TranitComponent implements OnInit {
   ngOnInit() {
   }
   
-
   onDataReceived(data) {
     this.dataResponse = data;
 
   }
+
   searchMyRide()
   {
     this.tranitService.searchMyRide(this.carType)

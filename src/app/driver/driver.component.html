@@ -1,179 +1,177 @@
 <div class="card nopadding mt-3 mb-4">
-    <div class="card-header  bg-info text-center text-light">
-        <strong><span class="fa fa-user-circle mr-2"></span> Driver Sign Up</strong>
-    </div>
-  
-    
+  <div class="card-header  bg-info text-center text-light">
+    <strong><span class="fa fa-user-circle mr-2"></span> Driver Sign Up</strong>
+  </div>
 
-      <div class="card-body mt-1">
-        
-          <form (ngSubmit)="onSubmit()" #driverForm="ngForm" >
 
-        <div class="form-group col-md-12">
+
+  <div class="card-body mt-1">
+
+    <form (ngSubmit)="onSubmit()" #driverForm="ngForm">
+
+      <div class="form-group col-md-12">
         <label for="name">Full Name</label>
-        <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required [(ngModel)]="driver.name" id="name" #name="ngModel" title="Only alphabets allowed">
-                <div *ngIf="!name.value && name.touched " class="alert alert-danger ">
-                    Field required
-                </div>
-                <div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
-                    Only alphabets allowed
-                </div>
+        <input type="text" class="form-control" name="name" title="Enter your name" pattern="[A-Za-z\s]*" required
+          [(ngModel)]="driver.name" id="name" #name="ngModel" title="Only alphabets allowed">
+        <div *ngIf="!name.value && name.touched " class="alert alert-danger ">
+          Field required
+        </div>
+        <div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
+          Only alphabets allowed
+        </div>
       </div>
-     
 
-   
+
+
       <div class="form-group col-md-12">
         <label for="age">Age</label>
-          <input type="text" class="form-control" required [(ngModel)]="driver.age" id="age" pattern="[0-9]*"
-          title="Only 2 digit number allowed" minlength="2" maxlength="2"  #age="ngModel" [ngModelOptions]="{standalone: true}">
-          <div *ngIf="age.invalid && (age.touched || age.dirty)" class="alert alert-danger ">
-            <div *ngIf="age.errors.required">
-              Age is required.
-            </div>
-            <div *ngIf="age.errors.minlength">
-              Age must be 2 characters long.
-            </div>
-            <div *ngIf="age.errors.pattern">
-              Invalid Format. Only numbers allowed.
-            </div>
+        <input type="text" class="form-control" required [(ngModel)]="driver.age" id="age" pattern="[0-9]*"
+          title="Only 2 digit number allowed" minlength="2" maxlength="2" #age="ngModel"
+          [ngModelOptions]="{standalone: true}">
+        <div *ngIf="age.invalid && (age.touched || age.dirty)" class="alert alert-danger ">
+          <div *ngIf="age.errors.required">
+            Age is required.
           </div>
+          <div *ngIf="age.errors.minlength">
+            Age must be 2 characters long.
+          </div>
+          <div *ngIf="age.errors.pattern">
+            Invalid Format. Only numbers allowed.
+          </div>
+        </div>
       </div>
 
-        <div class="form-group col-md-12">
-          <label for="phoneNumber">Phone Number</label>
-            <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[0-9]*"
-            title="Only 10 digit number allowed" minlength="10" maxlength="10"  
-            #phoneNumber="ngModel" [ngModelOptions]="{standalone: true}" id="phoneNumber">
-            <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger ">
-              <div *ngIf="phoneNumber.errors.required">
-                Phone number is required.
-              </div>
-              <div *ngIf="phoneNumber.errors.minlength">
-                Phone number must be 10 characters long.
-              </div>
-              <div *ngIf="phoneNumber.errors.pattern">
-                Invalid Format. Only numbers allowed.
-              </div>
-            </div>
+      <div class="form-group col-md-12">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[0-9]*"
+          title="Only 10 digit number allowed" minlength="10" maxlength="10" #phoneNumber="ngModel"
+          [ngModelOptions]="{standalone: true}" id="phoneNumber">
+        <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger ">
+          <div *ngIf="phoneNumber.errors.required">
+            Phone number is required.
+          </div>
+          <div *ngIf="phoneNumber.errors.minlength">
+            Phone number must be 10 characters long.
+          </div>
+          <div *ngIf="phoneNumber.errors.pattern">
+            Invalid Format. Only numbers allowed.
+          </div>
         </div>
+      </div>
 
-        <div class="form-group col-md-12">
-          <label for="emaile">Email Id</label>
-            <input type="email" class="form-control" id="email" required [(ngModel)]="driver.email"
-            #email="ngModel" [ngModelOptions]="{standalone: true}">
-            <div *ngIf="!email.value && email.touched " class="alert alert-danger ">
-              Field required
-          </div>
-          <div *ngIf="email.invalid && email.dirty && email.value" class="alert alert-danger">
-              Invalid format
-          </div>
-          </div>
-          
+      <div class="form-group col-md-12">
+        <label for="emaile">Email Id</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="driver.email" #email="ngModel"
+          [ngModelOptions]="{standalone: true}">
+        <div *ngIf="!email.value && email.touched " class="alert alert-danger ">
+          Field required
+        </div>
+        <div *ngIf="email.invalid && email.dirty && email.value" class="alert alert-danger">
+          Invalid format
+        </div>
+      </div>
 
-          <div class="form-group col-md-12">
-            <label for="carType">Car Type</label>
-            <select id="carType" class="form-control" required [(ngModel)]="driver.carType"
-             #car_type="ngModel" [ngModelOptions]="{standalone: true}">
-              <option selected>Choose Car Type</option>
-              <option>Hatchback</option>
-              <option>Sedan</option>
-              <option>SUV</option>
-            </select>
-          </div>
 
-    <div class="form-group col-md-12">
+      <div class="form-group col-md-12">
+        <label for="carType">Car Type</label>
+        <select id="carType" class="form-control" required [(ngModel)]="driver.carType" #car_type="ngModel"
+          [ngModelOptions]="{standalone: true}">
+          <option selected>Choose Car Type</option>
+          <option>Hatchback</option>
+          <option>Sedan</option>
+          <option>SUV</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-12">
         <label for="carNumber
         ">Vehicle No </label>
-          <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}" 
+        <input type="text" class="form-control" minlength="10" maxlength="10" pattern="[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}"
           id="carNumber
           " required [(ngModel)]="driver.carNumber
-          " #carNumber
-          ="ngModel" [ngModelOptions]="{standalone: true}">
-          <div *ngIf="carNumber
+          " #carNumber="ngModel" [ngModelOptions]="{standalone: true}">
+        <div *ngIf="carNumber
           .invalid && (carNumber
           .touched || carNumber
           .dirty)" class="alert alert-danger ">
-            <div *ngIf="carNumber
+          <div *ngIf="carNumber
             .errors.required">
-              Vehicle number is required.
-            </div>
-            <div *ngIf="carNumber
+            Vehicle number is required.
+          </div>
+          <div *ngIf="carNumber
             .errors.minlength">
-              Vehicle number must be 10 characters long.
-            </div>
-            <div *ngIf="carNumber
+            Vehicle number must be 10 characters long.
+          </div>
+          <div *ngIf="carNumber
             .errors.pattern">
-              Invalid Format. 
-            </div>
+            Invalid Format.
           </div>
-          <small id="vehicleHelpInline" class="text-muted">
-           Eg: KA03AF5435
-          </small>
         </div>
+        <small id="vehicleHelpInline" class="text-muted">
+          Eg: KA03AF5435
+        </small>
+      </div>
 
-        <div class="container-fluid ">
-          <label>Upload Driving License</label>
-            <div class="form-group col-md-12">
-              <label class="custom-file-label" for="customFile"> Upload here </label>
-              <input type="file" class="custom-file-input" id="customFile">
-            </div>
-          </div>
-            
-          <script>
-          // Code to get the name of file after uploading
-          $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-          });
-          </script>
+      <div class="container-fluid ">
+        <label>Upload Driving License</label>
+        <div class="form-group col-md-12">
+          <label class="custom-file-label" for="customFile"> Upload here </label>
+          <input type="file" class="custom-file-input" id="customFile">
+        </div>
+      </div>
 
-         
-          
-          <div class="form-group col-md-12">
-            <label for="Password">Password</label>
-            <input type="password" class="form-control" id="password" 
-            required [(ngModel)]="driver.password" #password="ngModel" [ngModelOptions]="{standalone: true}">
-            <small id="passwordHelpInline" class="text-muted">
-              Must be 5-20 characters long.
-            </small>
-          </div>
+      <script>
+        // Code to get the name of file after uploading
+        $(".custom-file-input").on("change", function () {
+          var fileName = $(this).val().split("\\").pop();
+          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+      </script>
 
-          <!-- <div class="form-group col-md-4">
+
+
+      <div class="form-group col-md-12">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="password" required [(ngModel)]="driver.password"
+          #password="ngModel" [ngModelOptions]="{standalone: true}">
+        <small id="passwordHelpInline" class="text-muted">
+          Must be 5-20 characters long.
+        </small>
+      </div>
+
+      <!-- <div class="form-group col-md-4">
             <label for="Password">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword2">
           </div>  -->
 
-          <div class="d-flex justify-content-center ">
-            <button type="submit" class="btn btn-info">Sign up</button>
-          </div>
-
-         
-
-            
-
-          </form >
-
+      <div class="d-flex justify-content-center ">
+        <button type="submit" [disabled]=!driverForm.form.valid class="btn btn-info">Sign up</button>
       </div>
-      <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
-        <div class="spinner-border text-info" role="status">
-            <!-- <span class="sr-only">Loading...</span> -->
-        </div>
-        <h6 class="mt-2">Please wait ...</h6>
-    </div>
 
-    <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
-      <div class="card text-center m-3">
-          <div class="card-header">
-              <strong>Driver Registration</strong>
-          </div>
-          <div class="card-body">
-              <!-- <h5 class="card-title">{{dataResponse["message"]}}</h5> -->
-              <p class="card-text">{{dataResponse["message"]}}</p>
-              <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
-          </div>
-      </div>
+
+
+
+
+    </form>
+
   </div>
+  <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+      <!-- <span class="sr-only">Loading...</span> -->
     </div>
+    <h6 class="mt-2">Please wait ...</h6>
+  </div>
 
-        
-
+  <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+    <div class="card text-center m-3">
+      <div class="card-header">
+        <strong>Driver Registration</strong>
+      </div>
+      <div class="card-body">
+        <!-- <h5 class="card-title">{{dataResponse["message"]}}</h5> -->
+        <p class="card-text">{{dataResponse["message"]}}</p>
+        <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
