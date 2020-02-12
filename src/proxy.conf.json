@@ -1,6 +1,6 @@
 {
     "/server": {
-    "target": ["http://localhost:8099","http://localhost:8762"],
+    "target": ["http://localhost:8099","http://localhost:8762","http://localhost:8085","http://localhost:8090"],
     "secure": false,
       "changeOrigin": true,
       "logLevel": "debug",

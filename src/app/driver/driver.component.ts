@@ -45,7 +45,7 @@ export class DriverComponent implements OnInit {
       data => {
         this.isProcessing = false;
         this.onDataReceived(data);
-
+        //this.router.navigate(['login']);
       },
       error=>{
         let errorObject = {
@@ -62,7 +62,7 @@ export class DriverComponent implements OnInit {
   closeToast() {
     this.showToast = false;
     this.router.navigate(['login']);
-    this.form.reset();
+    //this.form.reset();
   }
 
 }
