@@ -11,3 +11,40 @@
 .h2 {
     background-color: darkslategrey;
 }
+
+#wrapper {
+    margin: 0 auto; /* to make the div center align to the browser */
+    width: 500px; /* set it to anything */
+    text-align: center;
+    border-radius: 1%;
+}
+#wrapper ul {
+    background: darkslategrey;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 1%;
+}
+#wrapper ul li {
+    border-radius: 1%;
+    color: #fff;
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+#wrapper ul li:last-child {
+    border-radius: 1%;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 5px cornflowerblue;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
