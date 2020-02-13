@@ -6,7 +6,11 @@
       </ul>
     </div>
 
-    <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+    <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
+        </div>
+    </div>
   
     <table matSort (matSortChange) = "sortDrivers($event)" matSortActive="name" matSortDirection="asc" class="table table-striped">
       <thead>
@@ -22,8 +26,8 @@
       <tbody>
         
         <tr *ngFor="let driver of sortedDrivers | 
-        paginate: { itemsPerPage: 10, currentPage: p } | 
-        FilterPipe: {name: searchText, carType: searchText};">
+        paginate: {itemsPerPage: 10, currentPage: p} | 
+        FilterPipe: {name: searchText, carType:searchText, carNumber: searchText};">
           <td>{{driver.name}}</td>
           <td>{{driver.age}}</td>
           <td>{{driver.phoneNumber}}</td>
