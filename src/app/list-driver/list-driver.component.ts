@@ -15,6 +15,7 @@ export class ListDriverComponent implements OnInit {
 
   drivers: DriverModel[];
   sortedDrivers: DriverModel[];
+  public searchText : string;
   p: number;
 
   ngOnInit() {
