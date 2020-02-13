@@ -1,9 +1,5 @@
 <div class="col">
     <h2 align="center"> Driver Details</h2>
-    
-    
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    
 
     <table matSort (matSortChange) = "sortDrivers($event)" matSortActive="name" matSortDirection="asc" class="table table-striped">
       <thead>
