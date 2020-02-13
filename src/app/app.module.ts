@@ -22,7 +22,7 @@ import { ListDriverService } from './list-driver/list-driver.service';
 import { ListTransitComponent } from './list-transit/list-transit.component';
 import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
-import {MatSortModule} from '@angular/material';
+import {MatSortModule, MatTableModule} from '@angular/material';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -54,9 +54,12 @@ import { FilterPipe } from './filter.pipe';
     AppRoutingModule,
     NgxPaginationModule,
     MatSortModule,
+    MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  	ToastrModule.forRoot()
+  	ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+    }),
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
