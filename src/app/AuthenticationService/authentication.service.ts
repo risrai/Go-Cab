@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { LoginModel } from '../model/LoginModel';
 //import { RegisterUser } from '../model/registeruser';
 import { Observable } from 'rxjs';
@@ -29,15 +29,15 @@ export class AuthenticationService {
 
   login(loginData: LoginModel) {
 
-    this.options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    this.options = { headers: new HttpHeaders().set('Content-Type', 'application/text') ,observe:'response'};
     return this.http.post<any>(this.url+"/signin",JSON.stringify(loginData),this.options)
     .pipe(
-      map(authResponse=>{
-        if(authResponse){
+      map((res: HttpResponse<any>)=>{
+       if(res.headers.get!=null)
       // store user details and jwt token in the local storage to keep the user logged in between page refreshes
-      localStorage.setItem('currentUser', JSON.stringify(authResponse));
-      }
-      return authResponse;
+          localStorage.setItem("accessToken",res.headers.get('Authorization'));
+         console.log(res.body.get());
+
     })
     );
    // throw new Error("Method not implemented.");

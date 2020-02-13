@@ -37,10 +37,11 @@ export class LogInComponent implements OnInit {
   
 
 
-  onDataReceived(Msg : Object)
+  onDataReceived(data:object)
   {
    // data = this.successMsg;
-    this.dataResponse = Msg;
+    this.dataResponse = data;
+    console.log(this.dataResponse);
     this.showToast = true;
   }
 
@@ -49,10 +50,17 @@ export class LogInComponent implements OnInit {
     this.submitted = true;
     //console.log(loginData.value);
     this._auth.login(this.ldata).subscribe(
-      data=>{
+      (data)=>{
         this.isProcessing = false;
         this.showToast = true;
-        this.route.navigate(['transit']); 
+        console.log(data);
+        
+        let successObj = {
+          "success" : true,
+          "message" : this.successMsg
+        }
+        this.onDataReceived(successObj);
+       this.route.navigate(['transit']); 
         },
         // this.onDataReceived(successObj);
         
@@ -78,9 +86,11 @@ export class LogInComponent implements OnInit {
           }
           this.onDataReceived(errorObject);
           this.isProcessing = false;
+          this.showToast = true;
+          this.route.navigate(['login']); 
         }
+        
     );
-            
   
 }
 

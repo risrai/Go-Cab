@@ -54,7 +54,7 @@ import { TranitService } from './tranit.service';
     MatSortModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  	ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
