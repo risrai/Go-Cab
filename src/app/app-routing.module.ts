@@ -21,13 +21,13 @@ const routes: Routes = [
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
   {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
-  {path:'list-driver',component:ListDriverComponent},
-  {path:'list-rider',component:ListRiderComponent},
-  {path:'list-transit',component:ListTransitComponent},
+  {path:'list-driver',component:ListDriverComponent,canActivate:[AuthGuard]},
+  {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
+  {path:'list-transit',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
-  {path:'searchRide',component:ListTransitComponent},
+  {path:'searchRide',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path:'list-payment',component:PaymentComponent},
-  {path:'goFirst',component:TranitComponent}
+  {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

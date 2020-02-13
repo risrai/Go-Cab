@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
 import { FilterPipe } from './filter.pipe';
+import { RoleGuardService } from './auth/role-guard.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FilterPipe } from './filter.pipe';
     AuthenticationService ,
     ListDriverService,
     ListTransitService,
-    TranitService
+    TranitService,
+    RoleGuardService
     ],
   bootstrap: [AppComponent]
 })
