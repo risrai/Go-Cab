@@ -27,6 +27,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TranitService } from './tranit.service';
     ListDriverComponent,
     ListRiderComponent,
     ListTransitComponent,
-    FooterComponent
+    FooterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserAnimationsModule,
