@@ -8,12 +8,16 @@ import { AuthenticationService } from '../AuthenticationService/authentication.s
 })
 export class AuthGuard implements CanActivate {
   
-  constructor(private router: Router,
-              private authService:AuthenticationService
-    ){}
-  
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-          return this.authService.isLoggedIn();
-    }
-  
+  constructor(private router: Router){}
+  canActivate(router: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+     // check if the user is logged in
+     if(localStorage.getItem('currentUser')){
+         return true;
+     }
+
+     // not logged in so redirect to login page with the return url
+     this.router.navigate(['/login']);
+     return false;
+  }
+
 }
