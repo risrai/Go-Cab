@@ -36,3 +36,15 @@
     display: inline-block;
     margin: 0;
 }
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 5px cornflowerblue;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
