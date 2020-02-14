@@ -20,7 +20,8 @@ const routes: Routes = [
   {path:'driver',component: DriverComponent} ,
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
-  {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'transit',component:TranitComponent},
+  // ,canActivate:[AuthGuard]
   {path:'list-driver',component:ListDriverComponent},
   {path:'list-rider',component:ListRiderComponent},
   {path:'list-transit',component:ListTransitComponent},

@@ -50,10 +50,10 @@
 
   <div class="form-group col-md-12">
     <label for="carType">Car Type</label>
-    <select id="carType2" class="form-control" required [(ngModel)]="carType"
-     #carType2="ngModel" [ngModelOptions]="{standalone: true}">
+    <select id="carType2" class="form-control" required [(ngModel)]="transitsFe.cabType"
+     #cabType="ngModel" [ngModelOptions]="{standalone: true}">
 
-     <div *ngIf="!carType2.value && carType2.touched " class="alert alert-danger ">
+     <div *ngIf="!cabType.value && cabType.touched " class="alert alert-danger ">
       Field required
      </div>
 
@@ -92,12 +92,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let transit of transits">
+      <tr *ngFor="let transit of transits;let i = index " [attr.data-index]="i">
         <td>{{transit.phoneNumber}}</td>
         <td>{{transit.cabType}}</td>
         <td>{{transit.name}}</td>
         <td>{{transit.status}}</td>
-        <td><button class="btn btn-success" (click)="addDetails()"> Book Ride</button></td>
+        <td><button class="btn btn-success" (click)="addDetails(i)"> Book Ride</button></td>
       </tr>
     </tbody>
   </table>

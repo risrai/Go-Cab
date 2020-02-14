@@ -19,16 +19,13 @@ export class TranitComponent implements OnInit {
   bookingObj = new BookingModel();
   httpClient:HttpClient;
   dataResponse: Object;
+  transitsFe:TransitModel;
+  transits:TransitModel[];
   
- // isProcessing: boolean;
-  
-
-  constructor(private tranitService:TranitService) { }
-
   @ViewChild('bookingForm', { static: false }) form: any;
   toastr: any;
   public carType : string;
-  public transits = new TransitModel();
+  //public transits = new TransitModel();
   public toShowBase= true;
   public toShowFirst=false ;
   public toShowSecond=false ;
@@ -37,6 +34,15 @@ export class TranitComponent implements OnInit {
   newFare:number;
   responseModel: Object;
 
+ // isProcessing: boolean;
+  
+
+  constructor(private tranitService:TranitService) {
+    this.transitsFe = new TransitModel();
+    this.transits = [];
+   }
+
+  
   ngOnInit() {
   }
   
@@ -47,26 +53,39 @@ export class TranitComponent implements OnInit {
 
   searchMyRide()
   {
-    this.tranitService.searchMyRide(this.carType)
-    .subscribe(data=>{this.transits=data;
-      console.log(this.transits.cabType);});
+    this.tranitService.searchMyRide(this.transitsFe.cabType)
+    .subscribe(
+      data=>{
+         this.transits=data;
+         console.log(this.transits);
+      });
     this.toShowFirst=true ;
     this.toShowBase=false;
     
   }
   
 
-  addDetails()
+  addDetails(index:number)
   {
     this.toShowFirst=false;
     this.toShowSecond=true;
-    this.bookingObj={"source":this.booking.source,
-     "destination":this.booking.destination,"carType":this.transits.cabType};
-     console.log(this.bookingObj);
+    console.log(index);
+    // this.bookingObj={
+    //   "source":this.booking.source,
+    //   "destination":this.booking.destination,
+    //   "carType":this.transits.cabType
+    // };
+    this.bookingObj.source = this.booking.source;
+    this.bookingObj.destination = this.booking.destination;
+    this.bookingObj.cabType = this.transits[index].cabType;
+    console.log(this.bookingObj);
      this.tranitService.doBooking(this.bookingObj)
      .subscribe(
-       data => {this.onDataReceived(data);
-       },
+       data => {
+         this.onDataReceived(data);
+         console.log(this.onDataReceived);
+       }
+       
         )
        
   }
@@ -74,8 +93,9 @@ export class TranitComponent implements OnInit {
   {
     this.toShowSecond=false;
     this.toShowThird=true;
-    this.bookingObj={"source":this.booking.source,
-     "destination":this.booking.destination,"carType":this.transits.cabType};
+  //  this.bookingObj={"source":this.booking.source,
+    // "destination":this.booking.destination,"carType":this.transits.cabType
+ // };
      console.log(this.bookingObj);
     this.tranitService.getFareTrip(this.bookingObj)
     .subscribe(
