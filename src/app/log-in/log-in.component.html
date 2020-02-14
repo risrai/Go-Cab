@@ -4,17 +4,17 @@
                 </div>
 
     <div class="card-body mt-1">
-        <form #loginForm = "ngForm" (ngSubmit) = "onLogin(loginForm)"> 
+        <form (ngSubmit) = "onLogin()" #loginForm = "ngForm" > 
             <div class="form-group col-md-12  ">
                 <label>Email Id</label>
                 <input type="email" id="email" name="email"class="form-control" required
-                [(ngModel)]="ldata.username" >
+                [(ngModel)]="ldata.username" #username="ngModel">
             </div>
 
             <div class="form-group col-md-12  ">
                 <label>Password</label>
                 <input type="password" id="password" name="password" class="form-control" required
-                [(ngModel)]="ldata.password">
+                [(ngModel)]="ldata.password" #password="ngModel">
             </div>
                 
             <div class="d-flex justify-content-center ">
