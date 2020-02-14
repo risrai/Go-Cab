@@ -19,19 +19,15 @@ export class ListDriverComponent implements OnInit {
   public searchText : string;
   p: number;
 
-  @ViewChild('elem') elem: ElementRef;
-
   constructor(private router: Router, private listDriverService: ListDriverService, 
     private toastr: ToastrService, private renderer2: Renderer2) {
-    console.log(this.drivers);
-    if (this.drivers)
-      this.sortedDrivers = this.drivers.slice();
   }  
 
   ngOnInit() {
     this.listDriverService.getDrivers()
       .subscribe( data => {
         this.drivers = data;
+        this.sortedDrivers = data;
       });
   };
 
@@ -40,7 +36,7 @@ export class ListDriverComponent implements OnInit {
       .subscribe( data => {
         this.drivers = this.drivers.filter(u => u !== driver);
         this.toastr.error("Driver Removed !");
-        this.drivers.splice(index, 1);
+        this.sortedDrivers.splice(index, 1);
       })
   };
 
