@@ -19,7 +19,7 @@ export class TranitService {
     return this.http.get('http://localhost:8090/transit/search/'+cabType)
   }
 
-
+  
   // return this.http.post("http://localhost:8080/booking/add"
   // ,transitService) ;
 

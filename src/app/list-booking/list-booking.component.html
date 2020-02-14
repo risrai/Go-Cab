@@ -1,0 +1,26 @@
+<div class="col">
+    <h2>Booking Details</h2>
+    
+    <table class="table table-striped" style="margin-left:30%">
+      <thead>
+      <tr class="heading">
+        <th>Booking Id</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Fare</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of bookingDetails">
+          <td>{{book.bookingId}}</td>
+          <td>{{book.source}}</td>
+          <td>{{book.destination}}</td>
+          <td>{{book.fare}}</td>
+          <!-- <td>{{transit.cabType}}</td>
+          <td>{{transit.name}}</td>
+          <td>{{transit.status}}</td> -->
+          <!-- <td><button class="btn btn-success" (click)="addDetails(i)"> Book Ride</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+    </div>

@@ -4,6 +4,7 @@ import { BookingModel } from '../model/BookingModel.';
 import { TranitService } from '../tranit.service';
 import { TransitModel } from '../model/TransitModel';
 import { PaymentModel } from '../model/PaymentModel';
+import { ListBookingModel } from '../model/ListBookingModel';
 
 @Component({
   selector: 'app-tranit',
@@ -21,11 +22,11 @@ export class TranitComponent implements OnInit {
   dataResponse: Object;
   transitsFe:TransitModel;
   transits:TransitModel[];
+ 
   
   @ViewChild('bookingForm', { static: false }) form: any;
   toastr: any;
   public carType : string;
-  //public transits = new TransitModel();
   public toShowBase= true;
   public toShowFirst=false ;
   public toShowSecond=false ;
@@ -33,13 +34,12 @@ export class TranitComponent implements OnInit {
   public paymentModel=new PaymentModel();
   newFare:number;
   responseModel: Object;
-
- // isProcessing: boolean;
   
 
   constructor(private tranitService:TranitService) {
     this.transitsFe = new TransitModel();
     this.transits = [];
+  
    }
 
   
@@ -63,6 +63,7 @@ export class TranitComponent implements OnInit {
     this.toShowBase=false;
     
   }
+  
   
 
   addDetails(index:number)

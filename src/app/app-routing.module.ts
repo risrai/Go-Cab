@@ -13,6 +13,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { 
   RoleGuardService as RoleGuard 
 } from './auth/role-guard.service';
+import { ListBookingComponent } from './list-booking/list-booking.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
   {path:'searchRide',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path:'list-payment',component:PaymentComponent},
-  {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]}
+  {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'list-bookings',component:ListBookingComponent}
 ];
 
 @NgModule({

@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
 import { FilterPipe } from './filter.pipe';
 import { RoleGuardService } from './auth/role-guard.service';
+import { ListBookingComponent } from './list-booking/list-booking.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RoleGuardService } from './auth/role-guard.service';
     ListRiderComponent,
     ListTransitComponent,
     FooterComponent,
-    FilterPipe
+    FilterPipe,
+    ListBookingComponent
   ],
   imports: [
     BrowserAnimationsModule,
