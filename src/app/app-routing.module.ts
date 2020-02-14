@@ -21,7 +21,7 @@ const routes: Routes = [
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
   {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
-  {path:'list-driver',component:ListDriverComponent,canActivate:[AuthGuard]},
+  {path:'list-driver',component:ListDriverComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
   {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
   {path:'list-transit',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
