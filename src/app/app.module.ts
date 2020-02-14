@@ -28,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
 import { FilterPipe } from './filter.pipe';
+import { RoleGuardService } from './auth/role-guard.service';
+import { ListBookingComponent } from './list-booking/list-booking.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { FilterPipe } from './filter.pipe';
     ListRiderComponent,
     ListTransitComponent,
     FooterComponent,
-    FilterPipe
+    FilterPipe,
+    ListBookingComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,15 +60,14 @@ import { FilterPipe } from './filter.pipe';
     MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  	ToastrModule.forRoot({
-      positionClass: 'toast-top-center',
-    }),
+    ToastrModule.forRoot(),
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
     ListDriverService,
     ListTransitService,
-    TranitService
+    TranitService,
+    RoleGuardService
     ],
   bootstrap: [AppComponent]
 })

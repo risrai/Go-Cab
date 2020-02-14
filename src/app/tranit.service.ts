@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BookingModel } from './model/BookingModel.';
 import { PaymentModel } from './model/PaymentModel';
 
+const httpOptions = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 @Injectable({
   providedIn: 'root'
 })
@@ -18,10 +19,15 @@ export class TranitService {
     return this.http.get('http://localhost:8090/transit/search/'+cabType)
   }
 
-  doBooking(transitService:BookingModel)
+  
+  // return this.http.post("http://localhost:8080/booking/add"
+  // ,transitService) ;
+
+  doBooking(transitService)
   {
-  return this.http.post("http://localhost:8080/booking/add"
-  ,transitService) ;
+  console.log(JSON.stringify(transitService));  
+  return this.http.post<string>("http://localhost:8080/booking/add"
+  ,JSON.stringify(transitService),httpOptions) ;
   }
 
   getFareTrip(booking):Observable<any>

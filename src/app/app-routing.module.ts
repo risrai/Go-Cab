@@ -13,6 +13,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { 
   RoleGuardService as RoleGuard 
 } from './auth/role-guard.service';
+import { ListBookingComponent } from './list-booking/list-booking.component';
 
 
 const routes: Routes = [
@@ -21,13 +22,14 @@ const routes: Routes = [
   {path:'about',component:HomePageComponent},
   {path:'login',component:LogInComponent},
   {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
-  {path:'list-driver',component:ListDriverComponent},
-  {path:'list-rider',component:ListRiderComponent},
-  {path:'list-transit',component:ListTransitComponent},
+  {path:'list-driver',component:ListDriverComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
+  {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
+  {path:'list-transit',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},
-  {path:'searchRide',component:ListTransitComponent},
+  {path:'searchRide',component:ListTransitComponent,canActivate:[AuthGuard]},
   {path:'list-payment',component:PaymentComponent},
-  {path:'goFirst',component:TranitComponent}
+  {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'list-bookings',component:ListBookingComponent}
 ];
 
 @NgModule({
