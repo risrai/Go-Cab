@@ -14,7 +14,7 @@ export class ListBookingComponent implements OnInit {
     this.bookingDetails=[] ;
    }
   bookingDetails:ListBookingModel[];
-  
+  p:number=1;
 
   ngOnInit(): void {
 

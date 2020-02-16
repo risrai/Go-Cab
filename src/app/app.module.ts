@@ -24,6 +24,7 @@ import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
 import {MatSortModule, MatTableModule} from '@angular/material';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {Ng2SearchPipeModule} from 'ng2-search-filter' ;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
@@ -52,7 +53,7 @@ import { ListBookingComponent } from './list-booking/list-booking.component';
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule,Ng2SearchPipeModule,
     FormsModule,
     AppRoutingModule,
     NgxPaginationModule,

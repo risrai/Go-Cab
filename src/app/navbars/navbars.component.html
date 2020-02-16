@@ -2,19 +2,21 @@
 
     <!-- Navbar content -->
     <ul class="nav nav-pills">
+
       <li class="nav-item">
-        <a class="nav-link " routerLink="/about">Go-Cab</a>
+        <a class="nav-link " routerLink="/about" routerLinkActive="active">Go-Cab</a>
       </li>
 
       <li [hidden] = "this._auth.isLoggedIn()"class="nav-item">
-        <a class="nav-link" routerLink="/driver">Driver </a>
+        <a class="nav-link" routerLink="/driver" routerLinkActive="active" >Driver </a>
       </li>
+
       <li [hidden] = "this._auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link " routerLink="/rir"> Rider</a>
+        <a class="nav-link " routerLink="/rir" routerLinkActive="active"> Rider</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " routerLink="/transit">Transit</a>
+        <a class="nav-link " routerLink="/transit" routerLinkActive="active">Transit</a>
       </li>
 
       <!-- <li class="nav-item">
@@ -23,14 +25,14 @@
 
 
       <li *ngIf="!this._auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/login">Log in</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Log in</a>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink="/list-driver">List Drivers</a>
-            <a class="dropdown-item" routerLink="/list-bookings">View Bookings</a>
+            <a class="dropdown-item" routerLink="/list-driver" routerLinkActive="active" >List Drivers</a>
+            <a class="dropdown-item" routerLink="/list-bookings" routerLinkActive="active">View Bookings</a>
             <!--a class="dropdown-item" href="#">List Riders</a-->
         </div>
       </li>
