@@ -1,14 +1,16 @@
 <div class="card nopadding mt-3 mb-4">
-  <div *ngIf='toShowBase' >
-  <div class="card-header  bg-info text-center text-light">
-    <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
-  </div>
+    <div *ngIf='toShowBase' >
+          <div class="card-header  bg-info text-center text-light">
+            <strong><span class="fa fa-user-circle mr-2"></span>BOOK YOUR RIDE</strong>
+          </div>
+
   <br>
-  <!-- Source options -->
 
   <!-- Basic and First Layout -->
-  
+
   <form #bookingForm="ngForm">
+
+    <!-- Input for Source -->
 
     <div class="form-group col-md-12">
       <label for="source">Source</label>
@@ -19,6 +21,13 @@
         <option>KIA</option>
         <option>Wonderla</option>
       </select>
+      <div *ngIf="!source.value && source.touched " class="alert alert-danger ">
+        Field required
+      </div>
+    </div>
+
+<!-- Input for destination -->
+
   <div class="form-group col-md-12">
     <label for="destination">Destination</label>
     <select id="destination" class="form-control" required [(ngModel)]="booking.destination"
@@ -33,81 +42,43 @@
     </select>
   </div>
 
-      <div *ngIf="!source.value && source.touched " class="alert alert-danger ">
-        Field required
-      </div>
       <div *ngIf="source.invalid && source.dirty && source.value" class="alert alert-danger">
         Only alphabets allowed
       </div>
 
-    </div>
+  <!-- Input for Cab Type  -->
+
   <div class="form-group col-md-12">
-    <label for="carType">Car Type {{carType}}</label>
-    <select id="carType2" class="form-control" required [(ngModel)]="carType"
-     #carType2="ngModel" [ngModelOptions]="{standalone: true}">
-     <div *ngIf="!carType2.value && carType2.touched " class="alert alert-danger ">
+    <label for="carType">Car Type</label>
+    <select id="carType2" class="form-control" required [(ngModel)]="transitsFe.cabType"
+     #cabType="ngModel" [ngModelOptions]="{standalone: true}">
+
+     <div *ngIf="!cabType.value && cabType.touched " class="alert alert-danger ">
       Field required
-  </div>
+     </div>
+
       <option selected>Choose Car Type</option>
       <option>Hatchback</option>
       <option>Sedan</option>
       <option >SUV</option>
     </select>
+
   </div>
 
+  <!-- Submit button -->
 
-    <div class="form-group col-md-12">
-      <label for="destination">Destination</label>
-
-      <select id="destination" class="form-control" required [(ngModel)]="booking.destination" #destination="ngModel"
-        [ngModelOptions]="{standalone: true}">
-        <option selected>Choose your destination</option>
-        <option>WhiteField</option>
-        <option>Koramangla</option>
-        <option>Silk Board</option>
-      </select>
-
-      <div *ngIf="!destination.value && destination.touched " class="alert alert-danger ">
-        Field required
-      </div>
-      <div *ngIf="destination.invalid && destination.dirty && destination.value" class="alert alert-danger">
-        Only alphabets allowed
-      </div>
-
-
-    </div>
-
-
-    <div class="form-group col-md-12">
-      <label for="carType">Car Type </label>
-
-      <select id="carType2" class="form-control" required [(ngModel)]="carType" #carType2="ngModel"
-        [ngModelOptions]="{standalone: true}">
-        <option selected>Choose Car Type</option>
-        <option>Hatchback</option>
-        <option>Sedan</option>
-        <option>SUV</option>
-      </select>
-      <br>
-      <div *ngIf="!carType2.value && carType2.touched " class="alert alert-danger ">
-        Field required
-      </div>
-      <div *ngIf="carType2.invalid && carType2.dirty && carType2.value" class="alert alert-danger">
-        Only alphabets allowed
-      </div>
-
-    </div>
     <div class="d-flex justify-content-center ">
       <button [disabled]=!bookingForm.form.valid type="submit" (click)="searchMyRide()" [disabled]="!bookingForm.form.valid" class="btn btn-info">Find My
         Ride</button>
-      <!-- routerLink="/searchRide" -->
     </div>
     <br>
   </form>
+
   </div>
 </div>
 
-<!-- First Part -->
+<!-- First Part to show rides available-->
+
 <div *ngIf='toShowFirst' class="col">
   <h4 class="h text-white text-center bg-dark">Available Transits</h4>
   <table class="table table-hover table-bordered table-dark">
@@ -121,15 +92,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let transit of transits">
-        <!-- <td>7890567790</td> -->
+      <tr *ngFor="let transit of transits;let i = index " [attr.data-index]="i">
         <td>{{transit.phoneNumber}}</td>
         <td>{{transit.cabType}}</td>
         <td>{{transit.name}}</td>
         <td>{{transit.status}}</td>
-        <td><button class="btn btn-success" (click)="addDetails()"> Book Ride</button></td>
-        <!-- routerLink="/list-payment" -->
-
+        <td><button class="btn btn-success" (click)="addDetails(i)"> Book Ride</button></td>
       </tr>
     </tbody>
   </table>
@@ -137,7 +105,7 @@
 
 <br>
 
-<!-- Second Part -->
+<!-- Second Part to show the option to know payment-->
 <div *ngIf='toShowSecond' class="card nopadding mt-3 mb-4">
   <div class="card-header  bg-info text-center text-light">
       <strong><span class="fa fa-user-circle mr-2"></span> Payment</strong>
@@ -155,7 +123,8 @@
 </div>
 </div>
 
-<!-- Last part  -->
+<!-- Last part to get the confirmation of payment-->
+
 <div *ngIf='toShowThird' class="card nopadding mt-3 mb-4" >
   <div class="card-body mt-1 text-center">
   <h4> Total Fare: </h4>
@@ -168,10 +137,6 @@
 </div>
 <br>
 </div>
-
-<!-- <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
-  <div class="spinner-border text-info" role="status">
-  </div> -->
 
   <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-3">

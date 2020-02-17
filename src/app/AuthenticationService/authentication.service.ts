@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { LoginModel } from '../model/LoginModel';
 //import { RegisterUser } from '../model/registeruser';
 import { Observable } from 'rxjs';
@@ -30,30 +30,30 @@ export class AuthenticationService {
   login(loginData: LoginModel) {
 
     this.options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    return this.http.post<any>(this.url+"/signin",JSON.stringify(loginData),this.options)
-    .pipe(
-      map(authResponse=>{
-        if(authResponse){
-      // store user details and jwt token in the local storage to keep the user logged in between page refreshes
-      localStorage.setItem('currentUser', JSON.stringify(authResponse));
-      }
-      return authResponse;
-    })
-    );
+    return this.http.post(this.url+"/signin",JSON.stringify(loginData),this.options)
+    // .pipe(
+    //   map((res: HttpResponse<any>)=>{
+    //    if(res.headers.get('Authorization')!=null)
+    //   // store user details and jwt token in the local storage to keep the user logged in between page refreshes
+    //       localStorage.setItem("accessToken",res.headers.get('Authorization'));
+    //      console.log(res.body.get());
+
+    // })
+    // );
    // throw new Error("Method not implemented.");
   }
 
   logout(){
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('accessToken');
   }
 
   isLoggedIn() {
     
-    return !!localStorage.getItem('currentUser');
+    return !!localStorage.getItem('accessToken');
   }
 
   getToken():string {
-    return localStorage.getItem('currentUser');
+    return localStorage.getItem('accessToken');
   }
 
   doSessionRouting() {

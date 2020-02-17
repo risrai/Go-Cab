@@ -1,9 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DriverModel } from '../model/DriverModel';
 import { ListDriverService } from './list-driver.service';
+import { ToastrService } from 'ngx-toastr';  
 import {Sort} from '@angular/material';
 
 @Component({
@@ -15,20 +16,29 @@ export class ListDriverComponent implements OnInit {
 
   drivers: DriverModel[];
   sortedDrivers: DriverModel[];
+  public searchText : string;
   p: number;
 
+  constructor(private router: Router, private listDriverService: ListDriverService, 
+    private toastr: ToastrService, private renderer2: Renderer2) {
+  }  
+
   ngOnInit() {
-    this.listDriverService.getUsers()
+    this.listDriverService.getDrivers()
       .subscribe( data => {
         this.drivers = data;
+        this.sortedDrivers = data;
       });
   };
 
-  constructor(private router: Router, private listDriverService: ListDriverService) {
-    console.log(this.drivers);
-    if (this.drivers)
-      this.sortedDrivers = this.drivers.slice();
-  }  
+  deleteDriver(driver: DriverModel, index): void {
+    this.listDriverService.deleteDriver(driver)
+      .subscribe( data => {
+        this.drivers = this.drivers.filter(u => u !== driver);
+        this.toastr.error("Driver Removed !");
+        this.sortedDrivers.splice(index, 1);
+      })
+  };
 
   sortDrivers(sort: Sort) {
     const data = this.drivers.slice();

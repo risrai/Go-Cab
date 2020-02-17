@@ -12,11 +12,14 @@ const httpOptions = {
   
     constructor(private http:HttpClient) {}
   
-    private userUrl = 'http://localhost:8085/driver/all';
-    //private userUrl = '/api';
+    private driverUrl = 'http://localhost:8085/driver';
   
-    public getUsers() {
-      return this.http.get<DriverModel[]>(this.userUrl);
+    public getDrivers() {
+      return this.http.get<DriverModel[]>(this.driverUrl+"/all");
+    }
+
+    public deleteDriver(driver) {
+      return this.http.delete(this.driverUrl + "/"+ driver.phoneNumber);
     }
   
   }

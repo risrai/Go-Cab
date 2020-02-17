@@ -22,11 +22,15 @@ import { ListDriverService } from './list-driver/list-driver.service';
 import { ListTransitComponent } from './list-transit/list-transit.component';
 import { ListTransitService } from './list-transit/list-transit.service';
 import { FooterComponent } from './footer/footer.component';
-import {MatSortModule} from '@angular/material';
+import {MatSortModule, MatTableModule} from '@angular/material';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {Ng2SearchPipeModule} from 'ng2-search-filter' ;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranitService } from './tranit.service';
+import { FilterPipe } from './filter.pipe';
+import { RoleGuardService } from './auth/role-guard.service';
+import { ListBookingComponent } from './list-booking/list-booking.component';
 
 @NgModule({
   declarations: [
@@ -43,24 +47,28 @@ import { TranitService } from './tranit.service';
     ListDriverComponent,
     ListRiderComponent,
     ListTransitComponent,
-    FooterComponent
+    FooterComponent,
+    FilterPipe,
+    ListBookingComponent
   ],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule,Ng2SearchPipeModule,
     FormsModule,
     AppRoutingModule,
     NgxPaginationModule,
     MatSortModule,
+    MatTableModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  	ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [ AuthGuard ,
     AuthenticationService ,
     ListDriverService,
     ListTransitService,
-    TranitService
+    TranitService,
+    RoleGuardService
     ],
   bootstrap: [AppComponent]
 })

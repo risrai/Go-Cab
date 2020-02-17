@@ -1,0 +1,21 @@
+.col {
+    color: aliceblue;
+}
+
+.table {
+    background-color : darkgreen;
+    color: aliceblue;
+    border-radius: 1%; width:500px;
+    /* position: center;    */
+}
+
+.heading{
+    color: yellow;
+}
+h2 {
+    /* background-color: blanchedalmond; */
+    padding-top: 5 px;
+    color :chartreuse;
+    position: relative;
+}
+

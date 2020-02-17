@@ -28,18 +28,8 @@ export class ListTransitComponent implements OnInit {
 
   }
 
-  // addDetails()
-  // {
-  //   this.bookingObj={"source":this.booking.source,
-  //   "destination":this.booking.destination,"cabType":this.booking.cabType}
-  //   this.listTransitService.doBooking(this.bookingObj)
-  //   .subscribe(
-  //     data => {this.onDataReceived(data);
-  //     },
-  //      )
-  // }
-
-  ngOnInit() {this.listTransitService.getUsers()
+  ngOnInit() {
+    this.listTransitService.getUsers()
     .subscribe( data => {
       this.transits = data;
     });

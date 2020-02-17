@@ -1,12 +1,25 @@
-.white-box {
-    color: firebrick;
-    font-size: 80px;
+#wrapper {
+    margin: 0 auto; /* to make the div center align to the browser */
+    width: 500px; /* set it to anything */
     text-align: center;
-    background: #fff;
-    border-radius: 2px;
+    border-radius: 1%;
+}
+#wrapper ul {
+    background: rgb(217, 223, 223);
+    padding: 10px;
     display: inline-block;
-    height: 300px;
-    margin: 1rem;
-    position: relative;
-    width: 300px;
+    border-radius: 1%;
+    color: brown;
+}
+#wrapper ul li {
+    border-radius: 1%;
+    color: #fff;
+    display: inline-block;
+    margin: 0 20px 0 0;
+}
+#wrapper ul li:last-child {
+    border-radius: 1%;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
 }

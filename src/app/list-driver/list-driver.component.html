@@ -1,11 +1,18 @@
-<div class="col">
+<div class="col" >
     <h2 align="center"> Driver Details</h2>
-    
-    
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    
+    <div id="wrapper">
+      <ul>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </ul>
+    </div>
 
-    <table matSort (matSortChange) = "sortDrivers($event)" matSortActive="name" matSortDirection="asc" class="table table-striped">
+    <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
+        </div>
+    </div>
+  
+    <table matSort (matSortChange) = "sortDrivers($event)" matSortActive="name" matSortDirection='' class="table table-striped">
       <thead>
       <tr>
         <th mat-sort-header = "name">Name</th>
@@ -17,14 +24,17 @@
       </tr>
       </thead>
       <tbody>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        <tr *ngFor="let driver of sortedDrivers | paginate: { itemsPerPage: 10, currentPage: p }">
+        
+        <tr *ngFor="let driver of sortedDrivers | 
+        paginate: {itemsPerPage: 10, currentPage: p} | 
+        FilterPipe: {name: searchText, carType:searchText, carNumber: searchText};
+        let i = index;">
           <td>{{driver.name}}</td>
           <td>{{driver.age}}</td>
           <td>{{driver.phoneNumber}}</td>
           <td>{{driver.carType}}</td>
           <td>{{driver.carNumber}}</td>
-          <td><button class="btn btn-danger" routerLink="/list-rider"> Delete Driver</button></td>
+          <td><button class="btn btn-danger" (click)="deleteDriver(driver, i)"> Delete Driver</button></td>
         </tr>
         
       </tbody>
