@@ -1,9 +1,11 @@
 <div class="col">
-    <h2>Booking Details</h2>
-     <div class= "input-group col-md-6" >
-      <input type="text" placeholder="Search" class="form-control">
-      <!-- [(ngModel)]="searchLearning" -->
-      </div>  
+    <h2 align="center"> Booking Details</h2>
+
+     <div id="custom-search-input">
+        <div class="input-group col-md-12">
+            <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
+        </div>
+    </div>
       
     <table class="table table-striped" style="margin-left:30%">
       <thead>
@@ -15,14 +17,19 @@
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of bookingDetails | paginate: {itemsPerPage: 7, currentPage: p}; let i =index;">
+        
+        <tr *ngFor="let book of bookingDetails |
+         paginate: {itemsPerPage: 7, currentPage: p} |
+         FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText};
+          let i =index;">
           <!-- | filter:searchLearning  -->
           <td>{{book.bookingId}}</td>
           <td>{{book.source}}</td>
           <td>{{book.destination}}</td>
           <td>{{book.fare}}</td>
         </tr>
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </tbody>
     </table>
     </div>

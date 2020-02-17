@@ -15,6 +15,7 @@ export class ListBookingComponent implements OnInit {
    }
   bookingDetails:ListBookingModel[];
   p:number=1;
+  public searchText : string;
 
   ngOnInit(): void {
 
