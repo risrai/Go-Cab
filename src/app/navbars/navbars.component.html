@@ -3,40 +3,44 @@
     <!-- Navbar content -->
     <ul class="nav nav-pills">
 
+      <!-- Home Page Nav Bar -->
+
       <li class="nav-item">
         <a class="nav-link " routerLink="/about" routerLinkActive="active">Go-Cab</a>
       </li>
 
-      <li [hidden] = "this._auth.isLoggedIn()"class="nav-item">
-        <a class="nav-link" routerLink="/driver" routerLinkActive="active" >Driver </a>
+      <!-- Sign Up Page Nav Bar -->
+
+      <li  [hidden] = "this._auth.isLoggedIn()" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sign up</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item"routerLink="/driver" routerLinkActive="active" > Driver </a>
+            <a class="dropdown-item" routerLink="/rir" routerLinkActive="active"> Rider </a>
+        </div>
       </li>
 
-      <li [hidden] = "this._auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link " routerLink="/rir" routerLinkActive="active"> Rider</a>
-      </li>
-
+        <!-- Transit Page Nav Bar -->
+    
       <li class="nav-item">
         <a class="nav-link " routerLink="/transit" routerLinkActive="active">Transit</a>
       </li>
 
-      <!-- <li class="nav-item">
-        <a class="nav-link " routerLink="/payment">Payment</a>
-      </li> -->
+     <!-- Log-in Page Nav Bar -->
 
-
+     
       <li *ngIf="!this._auth.isLoggedIn()" class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Log in</a>
       </li>
+
+      <!-- Admin Nav Bar -->
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" routerLink="/list-driver" routerLinkActive="active" >List Drivers</a>
             <a class="dropdown-item" routerLink="/list-bookings" routerLinkActive="active">View Bookings</a>
-            <!--a class="dropdown-item" href="#">List Riders</a-->
         </div>
       </li>
-
    </ul>
 
    <ul class="navbar-nav navbar-right">
