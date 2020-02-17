@@ -1,35 +1,55 @@
-<div class="col">
-    <h2 align="center"> Booking Details</h2>
-
-     <div id="custom-search-input">
-        <div class="input-group col-md-12">
-            <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
-        </div>
-    </div>
+    <div class="container ">
+      <div class="row ">
+        <div class="col-12 ">
+          <div class="">
+            <h2 class="text-center text-light"> Booking Details</h2>
+          </div>
       
-    <table class="table table-striped" style="margin-left:30%">
-      <thead>
-      <tr class="heading">
-        <th>Booking Id</th>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Fare</th>
-      </tr>
-      </thead>
-      <tbody>
-        
-        <tr *ngFor="let book of bookingDetails |
-         paginate: {itemsPerPage: 7, currentPage: p} |
-         FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText};
-          let i =index;">
-          <!-- | filter:searchLearning  -->
-          <td>{{book.bookingId}}</td>
-          <td>{{book.source}}</td>
-          <td>{{book.destination}}</td>
-          <td>{{book.fare}}</td>
-        </tr>
+              <div class="input-group mx-auto col-2 my-3">
+                  <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
+              </div>
 
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-      </tbody>
-    </table>
+              <!-- <div id="custom-search-input">
+                <div class="input-group col-md-4 margin-left=10px ">
+                    <input [(ngModel)]="searchText" placeholder="Search.." class="form-control input-lg" />
+                </div>
+            </div> -->
+        
+          
+              <table class="table table-dark mx-auto col-6 p-2" style="margin-left:30%">
+                <thead>
+                <tr class="heading">
+                  <th
+                  (click)="sortSecondButtonPressed=!sortSecondButtonPressed;
+                  sortByBookingId(sortSecondButtonPressed)"
+                  style="cursor:pointer">Booking Id</th>
+                  <th>Source</th>
+                  <th>Destination</th>
+                  <th 
+                  (click)="sortButtonPressed=!sortButtonPressed;
+                           sortByFare(sortButtonPressed)"
+                           style="cursor:pointer">Fare</th>
+                </tr>
+                </thead>
+                <tbody>
+                  
+                  <tr *ngFor="let book of bookingDetails |
+                   paginate: {itemsPerPage: 7, currentPage: p} |
+                   FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText};
+                    let i =index;">
+                    <td>{{book.bookingId}}</td>
+                    <td>{{book.source}}</td>
+                    <td>{{book.destination}}</td>
+                    <td>{{book.fare}}</td>
+                  </tr>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </tbody>
+          </table>
+            
+          
+      
+            
+          </div>
+      </div>
     </div>
+   
