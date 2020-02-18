@@ -4,7 +4,6 @@ import { BookingModel } from '../model/BookingModel.';
 import { TranitService } from '../tranit.service';
 import { TransitModel } from '../model/TransitModel';
 import { PaymentModel } from '../model/PaymentModel';
-import { ListBookingModel } from '../model/ListBookingModel';
 
 @Component({
   selector: 'app-tranit',
@@ -34,6 +33,7 @@ export class TranitComponent implements OnInit {
   public paymentModel=new PaymentModel();
   newFare:number;
   responseModel: Object;
+  phonePath : string= "./assets/taxi2.jpg" ;
   
 
   constructor(private tranitService:TranitService) {

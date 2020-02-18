@@ -15,12 +15,12 @@ import { ListBookingComponent } from './list-booking/list-booking.component';
 
 const routes: Routes = [
   {path:'about',component:HomePageComponent},
-  {path: 'rir', component: RiderComponent,canActivate:[AuthGuard]},
-  {path:'driver',component: DriverComponent,canActivate:[AuthGuard]} ,
+  {path: 'rir', component: RiderComponent},
+  {path:'driver',component: DriverComponent} ,
   {path:'login',component:LogInComponent},
   {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
   {path:'list-driver',component:ListDriverComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
-  {path:'list-bookings',component:ListBookingComponent},
+  {path:'list-bookings',component:ListBookingComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
   // {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
   // {path:'list-transit',component:ListTransitComponent,canActivate:[AuthGuard]},
   // {path: 'payment',component:PaymentComponent,canActivate:[AuthGuard]},

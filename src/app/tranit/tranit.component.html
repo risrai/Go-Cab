@@ -88,7 +88,7 @@
         <th>Car Type</th>
         <th>Driver's name</th>
         <th>Status</th>
-        <th></th>
+        <th>Profile</th>
       </tr>
     </thead>
     <tbody>
@@ -97,6 +97,7 @@
         <td>{{transit.cabType}}</td>
         <td>{{transit.name}}</td>
         <td>{{transit.status}}</td>
+        <td class="profileImage"><img height="110px" width="110px" [src]="'assets/'+ transit.phoneNumber +'.jpg'"></td>
         <td><button class="btn btn-success" (click)="addDetails(i)"> Book Ride</button></td>
       </tr>
     </tbody>
