@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DriverScreenService } from './driver-screen.service';
+import { RiderDetails } from '../model/RiderDetails';
 
 @Component({
   selector: 'app-driver-screen',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./driver-screen.component.css']
 })
 export class DriverScreenComponent implements OnInit {
+  public riderDetails: RiderDetails[] ;
 
-  constructor() { }
+  constructor(private driverScreenService:DriverScreenService) { 
+    this.riderDetails=[];
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
+  }
+
+  getRiderDetails()
+  {
+    console.log("cedcbju");
+    this.driverScreenService.getRiderDetails()
+    .subscribe(
+        data=>{
+          this.riderDetails=data;
+           console.log(this.riderDetails);
+        }
+    );
   }
 
 }

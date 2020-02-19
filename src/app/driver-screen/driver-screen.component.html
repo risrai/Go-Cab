@@ -6,7 +6,11 @@
     <h4 class="h text-white text-center bg-dark">Click below to view ride requests </h4>
     <br>
     <div class="d-flex justify-content-center ">
-        <button class="btn btn-info">Ride Request</button>
+        <button (click)="getRiderDetails()" class="btn btn-info">Ride Request</button>
+        <div >
+            {{riderDetails["source"]}}
     </div>
     
 </div>
+</div>
+
