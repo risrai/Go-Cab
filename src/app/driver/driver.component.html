@@ -43,7 +43,7 @@
 
       <div class="form-group col-md-12">
         <label for="phoneNumber">Phone Number</label>
-        <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[0-9]*"
+        <input type="text" class="form-control" required [(ngModel)]="driver.phoneNumber" pattern="[6-9]{1}[0-9]{9}"
           title="Only 10 digit number allowed" minlength="10" maxlength="10" #phoneNumber="ngModel"
           [ngModelOptions]="{standalone: true}" id="phoneNumber">
         <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger ">
@@ -54,7 +54,7 @@
             Phone number must be 10 characters long.
           </div>
           <div *ngIf="phoneNumber.errors.pattern">
-            Invalid Format. Only numbers allowed.
+            Enter 10 digit number starting with 6-9. 
           </div>
         </div>
       </div>
