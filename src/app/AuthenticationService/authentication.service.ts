@@ -23,9 +23,9 @@ export class AuthenticationService {
 
   constructor(private http:HttpClient,private router : Router) { }
 
-  getAllUsers() : Observable<UserModel[]>{
-    return this.http.get<UserModel[]>(this.url+"/list");
-  }
+  // getAllUsers() : Observable<UserModel[]>{
+  //   return this.http.get<UserModel[]>(this.url+"/list");
+  // }
 
   login(loginData: LoginModel) {
 
