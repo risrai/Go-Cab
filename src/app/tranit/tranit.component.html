@@ -113,8 +113,16 @@
   </div>
     <div class="card-body mt-1">
           <div>
-            Your Ride has been successfully booked.
-            Click below to generate fare. 
+           <p>Your Ride has been successfully booked.</p> 
+            <!-- Click below to generate fare.  -->
+            <p>Click below to get OTP</p>
+            <br>
+            <div class="d-flex justify-content-center ">
+              <button class="btn btn-success" (click)="getOTP()">Show OTP</button>
+            </div>
+            <div *ngIf='showOTP' >
+              <p> OTP : 4567 </p> 
+            </div>
           </div>
           <br>
   <div class="d-flex justify-content-center ">

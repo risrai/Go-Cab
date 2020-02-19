@@ -30,6 +30,8 @@ export class TranitComponent implements OnInit {
   public toShowFirst=false ;
   public toShowSecond=false ;
   public toShowThird=false ;
+  public showOTP=false; 
+  public toShowEndTrip=false ;
   public paymentModel=new PaymentModel();
   newFare:number;
   responseModel: Object;
@@ -64,7 +66,11 @@ export class TranitComponent implements OnInit {
     
   }
   
-  
+  getOTP()
+  {
+    this.showOTP=true;
+    this.toShowEndTrip=true ;
+  }
 
   addDetails(index:number)
   {
@@ -94,6 +100,8 @@ export class TranitComponent implements OnInit {
   {
     this.toShowSecond=false;
     this.toShowThird=true;
+    this.showOTP=false;
+    this.toShowEndTrip=false;
   //  this.bookingObj={"source":this.booking.source,
     // "destination":this.booking.destination,"carType":this.transits.cabType
  // };
