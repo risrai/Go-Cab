@@ -29,6 +29,7 @@
                   (click)="sortButtonPressed=!sortButtonPressed;
                            sortByFare(sortButtonPressed)"
                            style="cursor:pointer">Fare</th>
+                           <th>Name</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                     <td>{{book.source}}</td>
                     <td>{{book.destination}}</td>
                     <td>{{book.fare}}</td>
+                    <td>{{book.name}}</td>
                   </tr>
                   <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </tbody>

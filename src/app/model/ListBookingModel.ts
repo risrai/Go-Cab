@@ -3,5 +3,6 @@ export class ListBookingModel {
     source:string ;
     destination:string ;
     fare: number ;
+    name:string ;
 
 }
