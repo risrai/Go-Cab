@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../AuthenticationService/authentication.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-driver-screen',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverScreenComponent implements OnInit {
 
-  constructor() { }
+  token : string;
+  name : string;
+
+  constructor(private _auth: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.token = this._auth.getToken();
+    const helper = new JwtHelperService();
+    const tokenPayload = helper.decodeToken(this.token);
+    this.name = tokenPayload.name;
+    console.log(this.name);
   }
 
 }
