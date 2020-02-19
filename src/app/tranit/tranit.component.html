@@ -49,11 +49,11 @@
   <!-- Input for Cab Type  -->
 
   <div class="form-group col-md-12">
-    <label for="carType">Car Type</label>
+    <label for="carType" class="control-label"> Car Type</label>
     <select id="carType2" class="form-control" required [(ngModel)]="transitsFe.cabType"
      #cabType="ngModel" [ngModelOptions]="{standalone: true}">
 
-     <div *ngIf="!cabType.value && cabType.touched " class="alert alert-danger ">
+     <div *ngIf="cabType.invalid && cabType.touched " class="alert alert-danger ">
       Field required
      </div>
 
@@ -108,30 +108,31 @@
 
 <!-- Second Part to show the option to know payment-->
 <div *ngIf='toShowSecond' class="card nopadding mt-3 mb-4">
-  <div class="card-header  bg-info text-center text-light">
-      <strong><span class="fa fa-user-circle mr-2"></span> Payment</strong>
-  </div>
-    <div class="card-body mt-1">
-          <div>
-           <p>Your Ride has been successfully booked.</p> 
-            <!-- Click below to generate fare.  -->
-            <p>Click below to get OTP</p>
-            <br>
-            <div class="d-flex justify-content-center ">
-              <button class="btn btn-success" (click)="getOTP()">Show OTP</button>
-            </div>
-            <div *ngIf='showOTP' >
-              <p> OTP : 4567 </p> 
-            </div>
-          </div>
-          <br>
-  <div class="d-flex justify-content-center ">
-  <button class="btn btn-success" (click)="getFareTrip()"> End Trip</button>
-</div>
-<br>
-</div>
-</div>
+      <div class="card-header  bg-info text-center text-light">
+         <strong><span class="fa fa-user-circle mr-2"></span> Ride</strong>
+      </div>
 
+    <div class="card-body mt-1 text-center">
+           <div>
+              <p>Your Ride has been successfully booked.</p> 
+                   <!-- Click below to generate fare.  -->
+               <p>Click below to get OTP</p>
+                     <br>
+                <div class="d-flex justify-content-center ">
+                  <button class="btn btn-primary" (click)="getOTP()">Show OTP</button>
+               </div>
+<br>
+                <div *ngIf='showOTP' >
+                    <p> OTP : 4578 </p> 
+                    <p>Click below to know the fare </p>
+                    <div class="d-flex justify-content-center ">
+          <button class="btn btn-info" (click)="getFareTrip()"> Get Fare </button>
+                    </div>
+                </div>
+           </div>
+     </div>
+  </div>
+  
 <!-- Last part to get the confirmation of payment-->
 
 <div *ngIf='toShowThird' class="card nopadding mt-3 mb-4" >

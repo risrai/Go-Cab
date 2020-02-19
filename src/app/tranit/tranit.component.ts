@@ -87,11 +87,6 @@ export class TranitComponent implements OnInit {
     this.toShowFirst=false;
     this.toShowSecond=true;
     console.log(index);
-    // this.bookingObj={
-    //   "source":this.booking.source,
-    //   "destination":this.booking.destination,
-    //   "carType":this.transits.cabType
-    // };
     this.bookingObj.source = this.booking.source;
     this.bookingObj.destination = this.booking.destination;
     this.bookingObj.cabType = this.transits[index].cabType;
@@ -112,9 +107,6 @@ export class TranitComponent implements OnInit {
     this.toShowThird=true;
     this.showOTP=false;
     this.toShowEndTrip=false;
-  //  this.bookingObj={"source":this.booking.source,
-    // "destination":this.booking.destination,"carType":this.transits.cabType
- // };
      console.log(this.bookingObj);
     this.tranitService.getFareTrip(this.bookingObj)
     .subscribe(
