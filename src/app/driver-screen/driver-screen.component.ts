@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DriverScreenService } from './driver-screen.service';
 import { RiderDetails } from '../model/RiderDetails';
+import { AuthenticationService } from '../AuthenticationService/authentication.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-driver-screen',
@@ -9,13 +11,19 @@ import { RiderDetails } from '../model/RiderDetails';
 })
 export class DriverScreenComponent implements OnInit {
   public riderDetails: RiderDetails[] ;
-
-  constructor(private driverScreenService:DriverScreenService) { 
+  token : string;
+  name : string;
+  constructor(private driverScreenService:DriverScreenService,
+    private _auth: AuthenticationService) { 
     this.riderDetails=[];
   }
 
-  ngOnInit() {
-    
+  ngOnInit(): void {
+    this.token = this._auth.getToken();
+    const helper = new JwtHelperService();
+    const tokenPayload = helper.decodeToken(this.token);
+    this.name = tokenPayload.name;
+    console.log(this.name);
   }
 
   getRiderDetails()
@@ -28,6 +36,8 @@ export class DriverScreenComponent implements OnInit {
            console.log(this.riderDetails);
         }
     );
-  }
+  
+
+      } 
 
 }

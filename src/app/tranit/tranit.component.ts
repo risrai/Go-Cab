@@ -90,6 +90,7 @@ export class TranitComponent implements OnInit {
     this.bookingObj.source = this.booking.source;
     this.bookingObj.destination = this.booking.destination;
     this.bookingObj.cabType = this.transits[index].cabType;
+    this.bookingObj.name = this.name;
     console.log(this.bookingObj);
      this.tranitService.doBooking(this.bookingObj)
      .subscribe(
