@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../AuthenticationService/authentication.service';
 import { HttpClientModule, HttpBackend, HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-log-in',
@@ -87,9 +88,18 @@ export class LogInComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
-    if(this.dataResponse['success']) {
+    if (this.dataResponse['success']) {
       localStorage.setItem("accessToken", this.dataResponse["accessToken"]);
-      this.route.navigate(['transit']);
+      const token = localStorage.getItem('accessToken');
+      const helper = new JwtHelperService();
+      const tokenPayload = helper.decodeToken(token);
+      console.log(tokenPayload.auth[0]);
+      if (tokenPayload.auth[0] === "ROLE_Rider") {
+        this.route.navigate(['transit']);
+      }
+      else {
+        this.route.navigate(['driverScreen']);
+      }
     }
     else {
       this.form.reset();
