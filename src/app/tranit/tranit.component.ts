@@ -4,6 +4,8 @@ import { BookingModel } from '../model/BookingModel.';
 import { TranitService } from '../tranit.service';
 import { TransitModel } from '../model/TransitModel';
 import { PaymentModel } from '../model/PaymentModel';
+import { AuthenticationService } from '../AuthenticationService/authentication.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-tranit',
@@ -30,6 +32,8 @@ export class TranitComponent implements OnInit {
   public toShowFirst=false ;
   public toShowSecond=false ;
   public toShowThird=false ;
+  token : string;
+  name : string;
   public showOTP=false; 
   public toShowEndTrip=false ;
   public paymentModel=new PaymentModel();
@@ -38,7 +42,8 @@ export class TranitComponent implements OnInit {
   phonePath : string= "./assets/taxi2.jpg" ;
   
 
-  constructor(private tranitService:TranitService) {
+  constructor(private tranitService:TranitService,
+    private _auth: AuthenticationService) {
     this.transitsFe = new TransitModel();
     this.transits = [];
   
@@ -46,6 +51,11 @@ export class TranitComponent implements OnInit {
 
   
   ngOnInit() {
+    this.token = this._auth.getToken();
+    const helper = new JwtHelperService();
+    const tokenPayload = helper.decodeToken(this.token);
+    this.name = tokenPayload.name;
+    console.log(this.name);
   }
   
   onDataReceived(data) {
