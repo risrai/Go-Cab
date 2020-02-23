@@ -35,7 +35,7 @@
                 <tbody>
                   
                   <tr *ngFor="let book of bookingDetails |
-                   paginate: {itemsPerPage: 7, currentPage: p} |
+                   paginate: {itemsPerPage: 4, currentPage: p} |
                    FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText};
                     let i =index;">
                     <td>{{book.bookingId}}</td>
