@@ -3,6 +3,8 @@ import { DriverScreenService } from './driver-screen.service';
 import { RiderDetails } from '../model/RiderDetails';
 import { AuthenticationService } from '../AuthenticationService/authentication.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-driver-screen',
@@ -13,8 +15,10 @@ export class DriverScreenComponent implements OnInit {
   public riderDetails: RiderDetails[] ;
   token : string;
   name : string;
+  public toShowRiderRequest=false;
+  public enterOTP=false;
   constructor(private driverScreenService:DriverScreenService,
-    private _auth: AuthenticationService) { 
+    private _auth: AuthenticationService,private route:Router) { 
     this.riderDetails=[];
   }
 
@@ -28,6 +32,7 @@ export class DriverScreenComponent implements OnInit {
 
   getRiderDetails()
   {
+    this.toShowRiderRequest=true;
     console.log("cedcbju");
     this.driverScreenService.getRiderDetails()
     .subscribe(
@@ -40,4 +45,20 @@ export class DriverScreenComponent implements OnInit {
 
       } 
 
+      
+       rejectRide() {
+        if(confirm("Are you sure to cancel the request ?"))
+        {
+          this.route.navigate(['driverScreen']);
+        }
+        else 
+        this.route.navigate(['driverScreen']);
+      }
+
+      acceptRide(){
+        this.toShowRiderRequest=false;
+        this.enterOTP=true;
+        
+      }
+      
 }

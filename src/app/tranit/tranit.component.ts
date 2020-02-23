@@ -51,11 +51,11 @@ export class TranitComponent implements OnInit {
 
   
   ngOnInit() {
-    this.token = this._auth.getToken();
-    const helper = new JwtHelperService();
-    const tokenPayload = helper.decodeToken(this.token);
-    this.name = tokenPayload.name;
-    console.log(this.name);
+    // this.token = this._auth.getToken();
+    // const helper = new JwtHelperService();
+    // const tokenPayload = helper.decodeToken(this.token);
+    // this.name = tokenPayload.name;
+    console.log("yeh hai" + this.name);
   }
   
   onDataReceived(data) {
@@ -90,6 +90,10 @@ export class TranitComponent implements OnInit {
     this.bookingObj.source = this.booking.source;
     this.bookingObj.destination = this.booking.destination;
     this.bookingObj.cabType = this.transits[index].cabType;
+    this.token = this._auth.getToken();
+    const helper = new JwtHelperService();
+    const tokenPayload = helper.decodeToken(this.token);
+    this.name = tokenPayload.name;
     this.bookingObj.name = this.name;
     console.log(this.bookingObj);
      this.tranitService.doBooking(this.bookingObj)

@@ -9,3 +9,36 @@
     padding: 0 !important;
     margin: 0 auto;
  }
+ .table{
+     margin-top: 10px;
+     margin-left: 60px;
+     width: 70% ;
+
+ }
+
+ .btn-space {
+    margin-right: 5px;
+}
+
+ .h3{
+    text-align: center;
+ }
+
+ .style {
+    background: rgb(23, 202, 202);
+    text-align: center;
+    color:rgb(20, 196, 209);
+}
+
+#buttons{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.headerColumn{
+    color: coral;
+}
+
+.riderName{
+    color: darkred;
+}

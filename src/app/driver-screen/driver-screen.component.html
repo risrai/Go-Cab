@@ -3,14 +3,47 @@
         <strong>Welcome {{name}}</strong>
         <br>
     </div>
-    <h4 class="h text-white text-center bg-dark">Click below to view ride requests </h4>
+
     <br>
+
     <div class="d-flex justify-content-center ">
-        <button (click)="getRiderDetails()" class="btn btn-info">Ride Request</button>
-        <div >
-            {{riderDetails["source"]}}
-    </div>
-    
+        <button (click)="getRiderDetails()" class="btn btn-info">Show Ride Requests </button>
 </div>
+
+<br>
+
+<div *ngIf='toShowRiderRequest'>
+    <table class="table table-hover table-bordered table-dark">
+        <thead class="text-white th">
+          <tr class="headerColumn">
+            <th>Rider Name</th>
+            <th>Source</th>
+            <th>Estimated Fare</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="riderName">
+            <td>{{riderDetails["name"]}}</td>
+            <td>{{riderDetails["source"]}}</td>
+            <td>{{riderDetails["fare"]}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="buttons" class="btn-group btn-group-toggle d-flex justify-content-center">
+        <button type="button" (click)="acceptRide()" class="btn btn-success"> Confirm </button>
+        <br>
+      <button type="button" (click)="rejectRide()" class="btn btn-danger"> Reject </button>
+      </div>
+      <br>
+      
+</div>
+<div *ngIf='enterOTP'>
+  <p> Enter OTP </p>
+  <input type="text"> 
+  <br>
+  <br>
+  <button class="btn btn-success"> Submit </button>
+</div>
+
 </div>
 
