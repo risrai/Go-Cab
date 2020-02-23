@@ -40,5 +40,15 @@
 }
 
 .riderName{
-    color: darkred;
+    color: seashell;
+}
+
+#submitButtonLast{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+#textBox{
+    text-align: center;
 }

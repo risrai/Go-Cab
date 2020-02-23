@@ -38,11 +38,11 @@
       
 </div>
 <div *ngIf='enterOTP'>
-  <p> Enter OTP </p>
-  <input type="text"> 
-  <br>
-  <br>
-  <button class="btn btn-success"> Submit </button>
+  <p id="textBox"> Enter OTP : <input type="text" > </p>
+  <div class="d-flex justify-content-center">
+    <button (click)="lastButton()" class="btn btn-success" id="submitButtonLast"> Submit </button>
+  </div>
+  
 </div>
 
 </div>
