@@ -58,7 +58,11 @@ export class DriverScreenComponent implements OnInit {
       acceptRide(){
         this.toShowRiderRequest=false;
         this.enterOTP=true;
-        
+      }
+      
+      lastButton()
+      {
+        alert("Your ride has started!!")
       }
       
 }
