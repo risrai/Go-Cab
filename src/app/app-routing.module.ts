@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'rir', component: RiderComponent},
   {path:'driver',component: DriverComponent} ,
   {path:'login',component:LogInComponent},
-  {path:'transit',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'transit',component:TranitComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Rider'}},
   {path:'list-driver',component:ListDriverComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
   {path:'list-bookings',component:ListBookingComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Admin'}},
   // {path:'list-rider',component:ListRiderComponent,canActivate:[AuthGuard]},
@@ -28,7 +28,7 @@ const routes: Routes = [
   // {path:'searchRide',component:ListTransitComponent,canActivate:[AuthGuard]},
   // {path:'list-payment',component:PaymentComponent},
   {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]},
- {path:'driverScreen',component:DriverScreenComponent,canActivate:[AuthGuard]}
+ {path:'driverScreen',component:DriverScreenComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Driver'}}
 ];
 
 @NgModule({

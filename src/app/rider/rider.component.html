@@ -71,7 +71,7 @@
       <div class="form-group col-md-12">
         <label for="zipcode">zipcode</label>
         <input type="text" class="form-control" id="zipcode" pattern="[0-9]*" required [(ngModel)]="rider.zipcode"
-          #zipcode="ngModel" [ngModelOptions]="{standalone: true}">
+          #zipcode="ngModel" minlength="6" maxlength="6" [ngModelOptions]="{standalone: true}">
         <div *ngIf="!zipcode.value && zipcode.touched " class="alert alert-danger ">
           Field is required
         </div>
