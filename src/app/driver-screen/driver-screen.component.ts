@@ -49,10 +49,10 @@ export class DriverScreenComponent implements OnInit {
        rejectRide() {
         if(confirm("Are you sure to cancel the request ?"))
         {
-          this.route.navigate(['driverScreen']);
+          this.route.navigate(['driverScreen2']);
         }
-        else 
-        this.route.navigate(['driverScreen']);
+        // else 
+        // this.route.navigate(['driverScreen']);
       }
 
       acceptRide(){

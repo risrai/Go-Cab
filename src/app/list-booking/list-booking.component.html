@@ -36,7 +36,7 @@
                   
                   <tr *ngFor="let book of bookingDetails |
                    paginate: {itemsPerPage: 4, currentPage: p} |
-                   FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText};
+                   FilterPipe:{bookingId:searchText,source:searchText,destination:searchText,fare:searchText,name:searchText};
                     let i =index;">
                     <td>{{book.bookingId}}</td>
                     <td>{{book.source}}</td>

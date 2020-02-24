@@ -28,6 +28,7 @@ const routes: Routes = [
   // {path:'searchRide',component:ListTransitComponent,canActivate:[AuthGuard]},
   // {path:'list-payment',component:PaymentComponent},
   {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]},
+  {path:'driverScreen2',component:DriverScreenComponent},
  {path:'driverScreen',component:DriverScreenComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Driver'}}
 ];
 

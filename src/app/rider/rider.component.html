@@ -83,7 +83,7 @@
       <div class="form-group col-md-12">
         <label for="password">Password</label>
         <input type="password" id="password" class="form-control " pattern=""required [ngModelOptions]="{standalone: true}"
-          [(ngModel)]="rider.password" aria-describedby="passwordHelpInline">
+          [(ngModel)]="rider.password" minlength="5" maxlength="20" aria-describedby="passwordHelpInline">
         <small id="passwordHelpInline" class="text-muted">
           Must be 5-20 characters long.
         </small>
