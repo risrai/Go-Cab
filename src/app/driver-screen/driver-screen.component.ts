@@ -16,7 +16,9 @@ export class DriverScreenComponent implements OnInit {
   token : string;
   name : string;
   public toShowRiderRequest=false;
+  public requestOptions=true ;
   public enterOTP=false;
+  public lastPage=false;
   constructor(private driverScreenService:DriverScreenService,
     private _auth: AuthenticationService,private route:Router) { 
     this.riderDetails=[];
@@ -33,6 +35,7 @@ export class DriverScreenComponent implements OnInit {
   getRiderDetails()
   {
     this.toShowRiderRequest=true;
+    this.requestOptions=false;
     console.log("cedcbju");
     this.driverScreenService.getRiderDetails()
     .subscribe(
@@ -49,7 +52,7 @@ export class DriverScreenComponent implements OnInit {
        rejectRide() {
         if(confirm("Are you sure to cancel the request ?"))
         {
-          this.route.navigate(['driverScreen2']);
+          this.route.navigate(['driverScreen4']);
         }
         // else 
         // this.route.navigate(['driverScreen']);
@@ -62,7 +65,14 @@ export class DriverScreenComponent implements OnInit {
       
       lastButton()
       {
-        alert("Your ride has started!!")
+        // alert("Your ride has started!!")
+        this.lastPage=true;
+        this.enterOTP=false;
+
+      }
+      endRideFinally()
+      {
+        this.route.navigate(['driverScreen2']);
       }
       
 }

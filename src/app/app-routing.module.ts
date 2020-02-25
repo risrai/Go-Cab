@@ -12,6 +12,7 @@ import {
 } from './auth/role-guard.service';
 import { ListBookingComponent } from './list-booking/list-booking.component';
 import { DriverScreenComponent } from './driver-screen/driver-screen.component';
+import { Direct } from 'protractor/built/driverProviders';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   // {path:'list-payment',component:PaymentComponent},
   {path:'goFirst',component:TranitComponent,canActivate:[AuthGuard]},
   {path:'driverScreen2',component:DriverScreenComponent},
+  {path:'driverScreen4',component:DriverScreenComponent},
  {path:'driverScreen',component:DriverScreenComponent,canActivate:[RoleGuard],data:{roles:'ROLE_Driver'}}
 ];
 

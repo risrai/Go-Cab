@@ -6,7 +6,7 @@
 
     <br>
 
-    <div class="d-flex justify-content-center ">
+    <div *ngIf='requestOptions' class="d-flex justify-content-center ">
         <button (click)="getRiderDetails()" class="btn btn-info">Show Ride Requests </button>
 </div>
 
@@ -43,6 +43,14 @@
     <button (click)="lastButton()" class="btn btn-success" id="submitButtonLast"> Submit </button>
   </div>
   
+</div>
+
+<div *ngIf='lastPage'>
+  <p id="textBox"> Your ride has started </p>
+  <div class="d-flex justify-content-center">
+    <button (click)="endRideFinally()" id="submitButtonLast" class="btn btn-success">End Trip </button>
+  </div>
+ 
 </div>
 
 </div>
