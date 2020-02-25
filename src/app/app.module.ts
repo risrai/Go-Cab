@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarsComponent } from './navbars/navbars.component';
 import { RiderComponent } from './rider/rider.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DriverComponent } from './driver/driver.component';
 import { LogInComponent } from './log-in/log-in.component';
@@ -32,6 +32,7 @@ import { FilterPipe } from './filter.pipe';
 import { RoleGuardService } from './auth/role-guard.service';
 import { ListBookingComponent } from './list-booking/list-booking.component';
 import { DriverScreenComponent } from './driver-screen/driver-screen.component';
+import { TokenInterceptor } from './AuthenticationService/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,12 @@ import { DriverScreenComponent } from './driver-screen/driver-screen.component';
     ListDriverService,
     ListTransitService,
     TranitService,
-    RoleGuardService
+    RoleGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
     ],
   bootstrap: [AppComponent]
 })
